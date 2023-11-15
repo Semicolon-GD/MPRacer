@@ -3,19 +3,27 @@ using System.Linq;
 using Unity.Collections;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class GameManager : NetworkBehaviour
 {
     public NetworkVariable<GameState> CurrentState = new();
     public NetworkVariable<FixedString128Bytes> Winner = new();
+    public NetworkVariable<double> TimeToStart = new();
     public static GameManager Instance { get; private set; }
 
-    public float TimeToStart { get; set; }
+ //   public float TimeToStart { get; set; }
     public float RaceTime { get; set; }
 
     void Awake()
     {
         Instance = this;
+            CurrentState.OnValueChanged += GameState_OnValueChanged;
+    }
+
+    void GameState_OnValueChanged(GameState previousValue, GameState newValue)
+    {
+        Debug.Log("GameState = " + newValue);
     }
 
     void Start()
@@ -43,29 +51,12 @@ public class GameManager : NetworkBehaviour
         }
     }
 
-    public override void OnDestroy()
-    {
-        if (IsHost)
-            NetworkManager.OnClientConnectedCallback -= AddPlayerCar;
-
-        base.OnDestroy();
-    }
-
-    void AddPlayerCar(ulong clientId)
-    {
-        UIConsoleManager.AddLog($"Add Player car {clientId}");
-        var playerNetworkObject = NetworkManager.Singleton.SpawnManager.GetPlayerNetworkObject(clientId);
-        var networkPlayer = playerNetworkObject.GetComponent<NetworkPlayer>();
-        networkPlayer.SpawnCar();
-    }
-
     public void StartRace()
     {
         if (IsHost)
         {
             CurrentState.Value = GameState.CountDown;
-            TimeToStart = 3;
-            StartRaceClientRpc();
+            TimeToStart.Value = NetworkManager.Singleton.NetworkTimeSystem.ServerTime + 3;
             MoveCarsToStartPointsOnServer();
         }
     }
@@ -80,15 +71,15 @@ public class GameManager : NetworkBehaviour
         }
     }
 
-    [ClientRpc]
-    void StartRaceClientRpc() => TimeToStart = 3f;
-
     void RacingUpdate() => RaceTime += Time.deltaTime;
 
     void CountDownUpdate()
     {
-        TimeToStart -= Time.deltaTime;
-        if (TimeToStart <= 0)
+        if (TimeToStart.Value == 0)
+            return;
+
+        var timeRemaining = TimeToStart.Value - NetworkManager.ServerTime.Time;
+        if (timeRemaining <= 0)
         {
             if (IsServer)
                 CurrentState.Value = GameState.Racing;
@@ -102,7 +93,7 @@ public class GameManager : NetworkBehaviour
         if (IsHost == false)
             return;
 
-        if (lapsCompleteValue < 1) // one lap to win for testing
+        if (lapsCompleteValue < 2) // one lap to win for testing
             return;
 
         var allPlayers = FindObjectsByType<NetworkPlayer>(FindObjectsSortMode.None);
@@ -130,7 +121,7 @@ public class GameManager : NetworkBehaviour
             Destroy(car.gameObject);
         }
 
-        ProjectSceneManager.Instance.SetupSceneManagementAndLoadNextTrack();
+        ProjectSceneManager.Instance.LoadNextTrack();
     }
 
     public void RequestNextTrack()

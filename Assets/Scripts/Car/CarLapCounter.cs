@@ -10,12 +10,18 @@ public class CarLapCounter : NetworkBehaviour
     List<Waypoint> _allWaypoints;
     HashSet<Waypoint> _waypointsRemaining = new();
     NetworkPlayer _player;
-    public string PlayerName => _player.PlayerName.Value.ToString();// { get; }
+    public string PlayerName => _player.PlayerName.Value.ToString(); // { get; }
+
+    public override void OnNetworkSpawn() => BindToPlayer(OwnerClientId);
+
+    protected override void OnOwnershipChanged(ulong previous, ulong current) => BindToPlayer(current);
+
+    void BindToPlayer(ulong ownerClientId) =>
+        _player = FindObjectsByType<NetworkPlayer>(FindObjectsSortMode.None)
+            .FirstOrDefault(t => t.OwnerClientId == ownerClientId);
 
     void Start()
     {
-        _player = FindObjectsByType<NetworkPlayer>(FindObjectsSortMode.None).FirstOrDefault(t => t.OwnerClientId == this.OwnerClientId);
-
         if (IsServer)
         {
             _allWaypoints = FindObjectsByType<Waypoint>(FindObjectsSortMode.None).ToList();
@@ -23,15 +29,15 @@ public class CarLapCounter : NetworkBehaviour
         }
 
         if (IsOwner)
-            ShortcutManager.Add("Finish Lap", FinishLap);
+            ShortcutManager.Add("Finish Lap", CheatFinishLap);
     }
 
-    public void Bind(NetworkPlayer networkPlayer)
-    {
-        _player = networkPlayer;
-    }
+    [ContextMenu(nameof(CheatFinishLap))]
+    public void CheatFinishLap() => CheatFinishLapServerRpc();
 
-    [ContextMenu(nameof(FinishLap))]
+    [ServerRpc]
+    void CheatFinishLapServerRpc() => FinishLap();
+
     void FinishLap()
     {
         LapsComplete.Value++;
@@ -57,7 +63,7 @@ public class CarLapCounter : NetworkBehaviour
     void ResetWaypoints()
     {
         _waypointsRemaining = new HashSet<Waypoint>(_allWaypoints);
-        foreach(var waypoint in _allWaypoints)
+        foreach (var waypoint in _allWaypoints)
             waypoint.ResetColor();
     }
 }

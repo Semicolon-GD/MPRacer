@@ -13,7 +13,7 @@ public class Waypoint : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"Entered Waypoint {NetworkManager.Singleton.IsServer}");
+//        Debug.Log($"Entered Waypoint {NetworkManager.Singleton.IsServer}");
 
         if (!other.TryGetComponent<CarLapCounter>(out var car))
             car = other.GetComponentInParent<CarLapCounter>();

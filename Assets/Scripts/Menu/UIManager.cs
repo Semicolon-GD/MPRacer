@@ -12,28 +12,9 @@ public class UIManager : MonoBehaviour
 
     UIMode CurrentUIMode;
 
-    void OnEnable()
-    {
-        ProjectSceneManager.OnPlayerJoinedTrack += HandlePlayerJoinedTrack;
-    }
-
-    void HandlePlayerJoinedTrack(ulong clientid)
-    {
-        if (clientid != NetworkManager.Singleton.LocalClientId)
-            return;
-
-        _mainMenuCanvas.SetActive(false);
-        _inGameCanvas.SetActive(true);
-    }
-
-    void OnDisable()
-    {
-        ProjectSceneManager.OnPlayerJoinedTrack -= HandlePlayerJoinedTrack;
-    }
-
     void Update()
     {
-        if (ProjectSceneManager.Instance.IsLoading)//.CurrentState.Value == GameState.Loading)
+        if (ProjectSceneManager.Instance.IsLoading)
             SetUIMode(UIMode.Loading);
         else if (GameManager.Instance == null)
             SetUIMode(UIMode.MainMenu);

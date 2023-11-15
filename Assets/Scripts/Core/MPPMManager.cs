@@ -5,6 +5,7 @@ using Unity.Multiplayer.Playmode;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using Unity.Services.Authentication;
+using Unity.Services.Lobbies.Models;
 using Unity.Services.PlayerAccounts;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,13 +13,12 @@ using UnityEngine.SceneManagement;
 public class MPPMManager : MonoBehaviour
 {
     #if UNITY_EDITOR
-    int _randomId;
-    string profileName;
+    public string profileName;
+    string car;
 
     IEnumerator Start()
     {
         DontDestroyOnLoad(gameObject);
-        _randomId = UnityEngine.Random.Range(1000, 9999);
 
         Debug.Log("MPPM");
         yield return new WaitForSeconds(1f);
@@ -42,12 +42,20 @@ public class MPPMManager : MonoBehaviour
             })
             .FirstOrDefault();
 
+        car = CurrentPlayer.ReadOnlyTags().Except(new[]
+            {
+                LOBBY_HOST, LOBBY_CLIENT, HOST, CLIENT, SERVER, profileName
+            })
+            .FirstOrDefault();
+        PlayerConnectionsManager.Instance.LocalCarSelection = car;
+
         Debug.Log("ProfileName " + profileName);
         if (profileName != default)
         {
             AuthenticationService.Instance.SwitchProfile(profileName);
-            Debug.Log($"Starting as {profileName}");
         }
+        Debug.Log($"Starting as {profileName}");
+
 
         if (CurrentPlayer.ReadOnlyTags().Contains(LOBBY_HOST))
             yield return LobbyHost();
@@ -59,6 +67,8 @@ public class MPPMManager : MonoBehaviour
             yield return Client();
         if (CurrentPlayer.ReadOnlyTags().Contains(SERVER))
             Server();
+
+        ShortcutManager.Add("Client", () => StartCoroutine(Client()));
     }
 
     static void Server()
@@ -93,7 +103,7 @@ public class MPPMManager : MonoBehaviour
         NetworkManager.Singleton.gameObject.GetComponent<UnityTransport>().SetConnectionData("127.0.0.1", 7777);
         yield return PlayerConnectionsManager.Instance.StartHostOnServer();
 
-        yield return ReloadExistingTrackOrLoadDefault();
+        //yield return ReloadExistingTrackOrLoadDefault();
     }
 
     static bool ReloadExistingTrackOrLoadDefault()
@@ -112,14 +122,13 @@ public class MPPMManager : MonoBehaviour
         }
 
         Debug.Log("Loading Default Track");
-        ProjectSceneManager.Instance.SetupSceneManagementAndLoadNextTrack();
+        // ProjectSceneManager.Instance.SetupSceneManagementAndLoadNextTrack();
         return false;
     }
 
     IEnumerator LobbyClient()
     {
-        string prefix = "LobbyClient";
-        yield return AuthenticateRandomUser(prefix);
+        yield return SignInAnon();
 
         while (PlayerPrefs.HasKey("LobbyId") == false)
         {
@@ -132,13 +141,11 @@ public class MPPMManager : MonoBehaviour
         LobbyManager.Instance.JoinLobbyById(lobbyId);
     }
 
-    async Awaitable AuthenticateRandomUser(string prefix)
+    async Awaitable SignInAnon()
     {
-        string randomProfileName = profileName + prefix + _randomId;
-
         try
         {
-            AuthenticationService.Instance.SwitchProfile(randomProfileName);
+            AuthenticationService.Instance.SwitchProfile(profileName);
         }
         catch (Exception ex)
         {
@@ -149,14 +156,14 @@ public class MPPMManager : MonoBehaviour
 
         SignInOptions options = new SignInOptions() { CreateAccount = true };
         await AuthenticationService.Instance.SignInAnonymouslyAsync(options);
-        await AuthenticationService.Instance.UpdatePlayerNameAsync(randomProfileName);
-        UIConsoleManager.AddLog($"Updating Playername to {randomProfileName}");
-        Debug.Log($"Set Name to {randomProfileName}");
+        await AuthenticationService.Instance.UpdatePlayerNameAsync(profileName);
+        UIConsoleManager.AddLog($"Updating Playername to {profileName}");
+        Debug.Log($"Set Name to {profileName}");
     }
 
     IEnumerator LobbyHost()
     {
-        yield return AuthenticationManager.Instance.SignInAnonAsync();
+        yield return AuthenticationManager.Instance.SignInAnonAsync("Host" + profileName);
         yield return new WaitUntil(() => AuthenticationManager.Instance.IsAuthenticated);
 
         var lobbyTask = LobbyManager.Instance.HostLobby();
@@ -182,7 +189,7 @@ public class MPPMManager : MonoBehaviour
     #endif
 }
 
-public enum GameState
+public enum GameState : byte
 {
     WaitingForPlayers,
     CountDown,

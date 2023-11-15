@@ -20,7 +20,6 @@ public class CarUnlockManager : MonoBehaviour
     {
         if (Instance != null)
         {
-            Debug.LogError("Duplicate CarUnlockManager, destroying new one");
             Destroy(gameObject);
             return;
         }
@@ -28,7 +27,7 @@ public class CarUnlockManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        ShortcutManager.Add("+20 Trophies", () => Add20Trophies());
+        ShortcutManager.Add("+20 Trophies", () => StartCoroutine(Add20Trophies()));
     }
 
     IEnumerator Start()

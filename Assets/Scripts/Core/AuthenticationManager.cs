@@ -12,7 +12,16 @@ public class AuthenticationManager : MonoBehaviour
     public static AuthenticationManager Instance { get; private set; }
 
     public bool IsAuthenticated => AuthenticationService.Instance.IsSignedIn;
-    public Task<string> GetPlayerNameAsync() => AuthenticationService.Instance.GetPlayerNameAsync();
+
+    public async Task<string> GetPlayerNameAsync()
+    {
+        if (!string.IsNullOrWhiteSpace(LocalPlayerName))
+            return LocalPlayerName;
+        LocalPlayerName = await AuthenticationService.Instance.GetPlayerNameAsync();
+        return LocalPlayerName;
+    }
+
+    public static string LocalPlayerName { get; private set; }
 
     public event Action OnSignedIn;
     public event Action<RequestFailedException> OnSigninFailed;
@@ -65,8 +74,14 @@ public class AuthenticationManager : MonoBehaviour
         OnSigninFailed?.Invoke(obj);
     }
 
-    public async Awaitable SignInAnonAsync(string playerName = default)
+    public async Awaitable SignInAnonAsync(string playerName)
     {
+        if (AuthenticationService.Instance.IsSignedIn)
+        {
+            AuthenticationService.Instance.SignOut();
+            await Awaitable.WaitForSecondsAsync(1.2f);
+        }
+
         if (playerName == default && AuthenticationService.Instance.SessionTokenExists)
         {
             Debug.Log("Session Token Exists");
@@ -77,12 +92,21 @@ public class AuthenticationManager : MonoBehaviour
             Debug.Log("Signing In Anonymously");
             SignInOptions options = new SignInOptions() { CreateAccount = true };
             await AuthenticationService.Instance.SignInAnonymouslyAsync(options);
+            AuthenticationService.Instance.SignedIn += HandlePlayerSignedIn;
         }
+    }
 
-        if (playerName != default)
+    async void HandlePlayerSignedIn()
+    {
+        var currentName = await GetPlayerNameAsync();
+        if (String.IsNullOrWhiteSpace(currentName))
         {
-            await AuthenticationService.Instance.UpdatePlayerNameAsync(playerName);
-            Debug.Log($"Set Playername to {playerName}");
+            Debug.Log($"Set Playername to {LocalPlayerName}");
+            await AuthenticationService.Instance.UpdatePlayerNameAsync(LocalPlayerName);
+        }
+        else
+        {
+            Debug.LogError($"Playername already set to {currentName}");
         }
     }
 
@@ -113,5 +137,10 @@ public class AuthenticationManager : MonoBehaviour
     public FixedString32Bytes GetPlayerIdCached()
     {
         return _playerInfo.Id;
+    }
+
+    public async Task SignInFromUIAsync()
+    {
+        await SignInAnonAsync( LocalPlayerName);
     }
 }

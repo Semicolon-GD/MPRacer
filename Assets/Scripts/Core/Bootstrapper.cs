@@ -28,13 +28,13 @@ public class Bootstrapper : MonoBehaviour
     static async void Init()
     {
         // cache loaded track here to reload later
-        if (SceneManager.GetSceneByName("Bootstrapper").IsValid() != true)
+        //if (SceneManager.GetSceneByName("Bootstrapper").IsValid() != true)
         {
             Debug.Log("Loading Bootstrapper");
             await SceneManager.LoadSceneAsync("Bootstrapper", LoadSceneMode.Single);
         }
 
-        if (SceneManager.GetSceneByName("UserInterface").IsValid() != true)
+        //if (SceneManager.GetSceneByName("UserInterface").IsValid() != true)
         {
             Debug.Log("Loading UserInterface");
             await SceneManager.LoadSceneAsync("UserInterface", LoadSceneMode.Additive);

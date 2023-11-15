@@ -1,7 +1,6 @@
 ﻿using System;
 using Unity.Netcode;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class ExtrapolatedNetworkMovement : NetworkBehaviour
 {
@@ -14,6 +13,7 @@ public class ExtrapolatedNetworkMovement : NetworkBehaviour
     [SerializeField] double _tolerance = 0.01f;
     [SerializeField] bool shouldSendFromClient;
     [SerializeField] bool shouldSendFromServer;
+    bool _dirty;
 
     void Awake()
     {
@@ -21,16 +21,38 @@ public class ExtrapolatedNetworkMovement : NetworkBehaviour
         NetworkManager.Singleton.NetworkTickSystem.Tick += HandleNetworkTick;
     }
 
+    static event Action OnAnyCarSpawned;
+    void Start()
+    {
+        OnAnyCarSpawned?.Invoke();
+        OnAnyCarSpawned += SetDirty;
+    }
+
+    public override void OnNetworkDespawn()
+    {
+        OnAnyCarSpawned -= SetDirty;
+        base.OnNetworkDespawn();
+    }
+
+    void SetDirty() => _dirty = true;
+
     public override void OnDestroy()
     {
-        if (NetworkManager.Singleton)
+        if (NetworkManager.Singleton != null && NetworkManager.Singleton.NetworkTickSystem != null)
             NetworkManager.Singleton.NetworkTickSystem.Tick -= HandleNetworkTick;
+        base.OnDestroy();
     }
 
     void HandleNetworkTick()
     {
         if (!enabled)
             return;
+
+        if (IsServer && _dirty)
+        {
+            SendMovementToClientRpc(netPosition, netVelocity, netOrientation, netServerTime);
+            _dirty = false;
+        }
 
         if (!IsOwner)
         {

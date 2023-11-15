@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 951099334
+  GlobalObjectIdHash: 5518764
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -209,8 +209,6 @@ MonoBehaviour:
   _backWheels:
   - {fileID: 3911123633079107932}
   - {fileID: 7759581770705115717}
-  _clientMovementController: {fileID: 570875811412594171}
-  _wheelTurn: 5
   _groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -255,7 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uprightDirection: {x: 0, y: 1, z: 0}
-  antiTippingForce: 5000
+  antiTippingForce: 10000
 --- !u!114 &4381271519389556752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,11 +333,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38b75a281255f6c46b9f3487d9e4c294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 100
   _maxSpeed: 8
   _turnSpeed: 60
   _rigidbody: {fileID: 8198806746965781352}
   _forceMode: 0
+  OwnerName:
+    m_InternalValue:
+      utf8LengthInBytes: 0
+      bytes:
+        offset0000:
+          byte0000: 0
+          byte0001: 0
+          byte0002: 0
+          byte0003: 0
+          byte0004: 0
+          byte0005: 0
+          byte0006: 0
+          byte0007: 0
+          byte0008: 0
+          byte0009: 0
+          byte0010: 0
+          byte0011: 0
+          byte0012: 0
+          byte0013: 0
+          byte0014: 0
+          byte0015: 0
+        byte0016: 0
+        byte0017: 0
+        byte0018: 0
+        byte0019: 0
+        byte0020: 0
+        byte0021: 0
+        byte0022: 0
+        byte0023: 0
+        byte0024: 0
+        byte0025: 0
+        byte0026: 0
+        byte0027: 0
+        byte0028: 0
+        byte0029: 0
 --- !u!114 &-4405211093644187446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,6 +384,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89ab5e615c1641b988789167b06ae1aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _tolerance: 0.009999999776482582
+  shouldSendFromClient: 0
+  shouldSendFromServer: 0
 --- !u!114 &-5084899950544835048
 MonoBehaviour:
   m_ObjectHideFlags: 0

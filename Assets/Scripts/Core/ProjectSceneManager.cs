@@ -26,17 +26,13 @@ public class ProjectSceneManager : NetworkBehaviour
 
 
     public bool IsLoading { get; private set; }
+
     public Scene CurrentTrackScene => GetCurrentTrack().Item1;
-    public bool IsAnyTrackLoaded() => GetCurrentTrack() != default;
-
-    public static event Action<ulong> OnPlayerJoinedTrack;
-
 
     void Awake()
     {
         if (Instance != null)
         {
-            Debug.LogError("Duplicate ProjectSceneManager, destroying new one");
             Destroy(gameObject);
             return;
         }
@@ -62,19 +58,45 @@ public class ProjectSceneManager : NetworkBehaviour
     [ContextMenu(nameof(SetupSceneManagementAndLoadNextTrack))]
     public void SetupSceneManagementAndLoadNextTrack()
     {
-        NetworkManager.Singleton.SceneManager.VerifySceneBeforeLoading = VerifySceneBeforeLoading;
-        NetworkManager.Singleton.SceneManager.OnLoadEventCompleted += HandleSceneLoaded;
-        //NetworkManager.Singleton.SceneManager.OnSynchronizeComplete += HandlePlayerJoined;
-        NetworkManager.Singleton.SceneManager.OnLoadComplete += HandlePlayerJoinedAtStart;
+        if (!IsServer)
+        {
+            Debug.LogError("SceneManager Events registered on client, this should not be called.");
+            return;
+        }
 
+        Debug.Log("SetupSceneManagementAndLoadNextTrack - Registering for Scene events on SERVER");
+        NetworkManager.Singleton.SceneManager.VerifySceneBeforeLoading = VerifySceneBeforeLoading;
+        NetworkManager.Singleton.SceneManager.OnLoadEventCompleted += HandleLoadEventCompletedForAllPlayers;
+        NetworkManager.Singleton.SceneManager.OnLoadComplete += HandleLoadCompleteForIndividualPlayer;
+
+        LoadNextTrack();
+    }
+
+    public void LoadNextTrack()
+    {
         var nextTrackName = GetNextTrack();
-        UIConsoleManager.AddLog($"SetupSceneManagement Loading Trac");
+        UIConsoleManager.AddLog($"SetupSceneManagement Loading Track {nextTrackName}");
 
         StartCoroutine(LoadTrackAsync(nextTrackName));
     }
 
+    void LogSceneEvent(SceneEvent sceneevent)
+    {
+        Debug.Log("SceneEvent " + sceneevent.SceneEventType + " " + sceneevent.SceneName + " for player " +
+                  sceneevent.ClientId);
+        Debug.Log(sceneevent.ClientsThatCompleted?.Count + " clients completed" +
+                  sceneevent.ClientsThatTimedOut?.Count + " clients timed out");
+        if (sceneevent.ClientsThatTimedOut != null)
+            foreach (var client in sceneevent.ClientsThatTimedOut)
+            {
+                Debug.Log(client + " timed out");
+            }
+    }
+
     static bool VerifySceneBeforeLoading(int sceneindex, string scenename, LoadSceneMode loadscenemode)
     {
+        Debug.Log("Doing Verification for " + scenename + " (filtering out UserInterface, everything else passes verification");
+
         if (scenename == "UserInterface")
             return false;
         return true;
@@ -98,30 +120,36 @@ public class ProjectSceneManager : NetworkBehaviour
         UIConsoleManager.AddLog($"Loading Track {trackName}");
     }
 
-    void HandlePlayerJoinedAtStart(ulong clientid, string scenename, LoadSceneMode loadscenemode)
+    void HandleLoadCompleteForIndividualPlayer(ulong clientid, string scenename, LoadSceneMode loadscenemode)
     {
+        Debug.LogError($"4. HandleLoadCompleteAndAddPlayerCar for {clientid} in {scenename} on SERVER ONLY");
+
         if (scenename.StartsWith("Track") == false)
             return;
 
         var playerNetworkObject = NetworkManager.Singleton.SpawnManager.GetPlayerNetworkObject(clientid);
         var player = playerNetworkObject.GetComponent<NetworkPlayer>();
-        player.SpawnCar();
+        string playerName = player.PlayerName.Value.Value;
+
+        var allCars = FindObjectsByType<CarClientMovementController>(FindObjectsSortMode.None);
+        var existingCar = allCars.FirstOrDefault(t => t.OwnerName.Value.Value.Equals(playerName));
+        if (existingCar != null)
+        {
+            Debug.LogError($"4.5 Retaking Ownership of Car {existingCar} for {clientid} in {scenename} on SERVER ONLY");
+            existingCar.GetComponent<NetworkObject>().ChangeOwnership(player.OwnerClientId);
+        }
+        else
+            player.SpawnCarOnServer();
     }
 
-    void HandlePlayerJoined(ulong clientid)
-    {
-        Debug.Log($"HandlePlayerJoinedLate {clientid}");
-        var playerNetworkObject = NetworkManager.Singleton.SpawnManager.GetPlayerNetworkObject(clientid);
-        var player = playerNetworkObject.GetComponent<NetworkPlayer>();
-        player.SpawnCar();
-    }
-
-    void HandleSceneLoaded(string sceneName, LoadSceneMode loadSceneMode, List<ulong> clientsCompleted,
+    void HandleLoadEventCompletedForAllPlayers(string sceneName, LoadSceneMode loadSceneMode,
+        List<ulong> clientsCompleted,
         List<ulong> clientsTimedOut)
     {
-        Debug.Log($"Loading Scene {sceneName}");
-        NetworkManager.Singleton.SceneManager.OnLoadEventCompleted -= HandleSceneLoaded;
+        Debug.Log(
+            $"HandleLoadEventCompletedForAllPlayers {sceneName} {loadSceneMode} Completed:{clientsCompleted.Count} TimedOut:{clientsTimedOut.Count}");
         IsLoading = false;
+        // NetworkManager.Singleton.SceneManager.OnLoadEventCompleted -= HandleLoadEventCompletedForAllPlayers;
         ListScenes();
     }
 

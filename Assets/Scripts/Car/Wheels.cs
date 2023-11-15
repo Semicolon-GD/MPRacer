@@ -6,8 +6,6 @@ public class Wheels : MonoBehaviour
 {
     [SerializeField] List<Wheel> _frontWheels;
     [SerializeField] List<Wheel> _backWheels;
-    [FormerlySerializedAs("_player")] [SerializeField] CarClientMovementController _clientMovementController;
-    [SerializeField] float _wheelTurn = 5f;
     [SerializeField] LayerMask _groundLayer;
     [SerializeField] float _wheelDistance = 1f;
     public bool HasTraction { get; private set; }
@@ -15,7 +13,6 @@ public class Wheels : MonoBehaviour
 
     void OnValidate()
     {
-        _clientMovementController = GetComponent<CarClientMovementController>();
         _groundLayer = LayerMask.GetMask("Ground");
     }
 

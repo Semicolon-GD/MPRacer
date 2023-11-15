@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 570875811412594171, guid: c4cad50aa03bbca42938fe318344950b, type: 3}
       propertyPath: _maxSpeed
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 570875811412594171, guid: c4cad50aa03bbca42938fe318344950b, type: 3}
       propertyPath: _turnSpeed
@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 104696f8b5f23d24586d858b68916bdc, type: 2}
     - target: {fileID: 6036338960782827549, guid: c4cad50aa03bbca42938fe318344950b, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 951099334
+      value: 359284058
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

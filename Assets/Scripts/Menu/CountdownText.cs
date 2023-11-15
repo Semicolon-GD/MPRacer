@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.Netcode;
 using UnityEngine;
 
 public class CountdownText : MonoBehaviour
@@ -10,8 +11,11 @@ public class CountdownText : MonoBehaviour
     void Update()
     {
         if (GameManager.Instance.CurrentState.Value == GameState.CountDown)
-            _text.SetText(GameManager.Instance.TimeToStart.ToString("n1"));
-           
+        {
+            var timeRemaining = GameManager.Instance.TimeToStart.Value - NetworkManager.Singleton.ServerTime.Time;
+            _text.SetText(timeRemaining.ToString("n1"));
+        }
+
         if (GameManager.Instance.CurrentState.Value == GameState.WaitingForPlayers)
             _text.SetText("Press START");
     }

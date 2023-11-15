@@ -76,7 +76,7 @@ public class MainMenuUI : MonoBehaviour
         try
         {
             _loginButtonsPanel.SetActive(false);
-            await AuthenticationManager.Instance.SignInAnonAsync();
+            await AuthenticationManager.Instance.SignInFromUIAsync();
         }
         catch (AuthenticationException exception)
         {

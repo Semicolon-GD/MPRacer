@@ -1,4 +1,5 @@
 using System;
+using Unity.Collections;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -6,14 +7,17 @@ using UnityEngine;
 [RequireComponent(typeof(CarLapCounter), typeof(CarSpawn))]
 public class CarClientMovementController : NetworkBehaviour
 {
-    [SerializeField] float _speed = 1f;
+    float _velocityMultiplier = 100f;
+
     [SerializeField] float _maxSpeed = 5f;
     [SerializeField] float _turnSpeed = 1f;
     [SerializeField] Rigidbody _rigidbody;
     [SerializeField] ForceMode _forceMode;
 
+    public bool IsLocalPlayersCar => OwnerName.Value == AuthenticationManager.LocalPlayerName;
     public int MaxSpeed => Convert.ToInt32(_maxSpeed);
     public int TurnSpeed => Convert.ToInt32(_turnSpeed / 10f);
+    public NetworkVariable<FixedString32Bytes> OwnerName;
 
     CarInput _input;
     Wheels _wheels;
@@ -29,11 +33,12 @@ public class CarClientMovementController : NetworkBehaviour
         _powerups = GetComponent<CarPowerups>();
         _terrainDetector = GetComponent<TerrainDetector>();
         _particles = GetComponent<CarParticles>();
+        OwnerName = new NetworkVariable<FixedString32Bytes>();
     }
 
     void Update()
     {
-        if (IsOwner)
+        if (IsLocalPlayersCar)
             UpdateMovement();
     }
 
@@ -58,7 +63,7 @@ public class CarClientMovementController : NetworkBehaviour
 
     void ApplyMovement()
     {
-        float moveAmount = _input.Throttle.Value * _speed;
+        float moveAmount = _input.Throttle.Value * _velocityMultiplier;
         var flatRotation = new Vector3(transform.forward.x, 0f, transform.forward.z);
 
         float maxSpeed = _powerups.GetMaxSpeed(_maxSpeed);

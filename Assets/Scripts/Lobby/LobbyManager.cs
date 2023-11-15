@@ -233,7 +233,7 @@ public class LobbyManager : MonoBehaviour
 
     IEnumerator StartServerThenCountdown()
     {
-        PlayerConnectionsManager.Instance.StartHostOnServer();
+        yield return PlayerConnectionsManager.Instance.StartHostOnServer();
         yield return RunCountdownWithEvents();
     }
 
