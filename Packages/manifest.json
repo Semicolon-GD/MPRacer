@@ -3,6 +3,7 @@
     "com.unity.cinemachine": "2.9.7",
     "com.unity.collab-proxy": "2.2.0",
     "com.unity.feature.development": "1.0.2",
+    "com.unity.ide.rider": "3.0.26",
     "com.unity.multiplayer.playmode": "0.5.0",
     "com.unity.multiplayer.tools": "2.0.0-pre.5",
     "com.unity.netcode.gameobjects": "1.7.0",
