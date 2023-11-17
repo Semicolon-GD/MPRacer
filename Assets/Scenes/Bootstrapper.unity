@@ -234,7 +234,7 @@ MonoBehaviour:
   ConnectionData:
     Address: 127.0.0.1
     Port: 7777
-    ServerListenAddress: 127.0.0.1
+    ServerListenAddress: 10.0.0.54
   DebugSimulator:
     PacketDelayMS: 0
     PacketJitterMS: 0
@@ -387,6 +387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerPrefab: {fileID: 675017881282894168, guid: c3eb7c74cbbc18b4a92923f0900ba7f9, type: 3}
+  PlayerNames: []
 --- !u!4 &1189166868
 Transform:
   m_ObjectHideFlags: 0

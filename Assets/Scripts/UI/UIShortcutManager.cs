@@ -22,12 +22,15 @@ public class UIShortcutManager : MonoBehaviour
         var button = Instantiate(_buttonPrefab, _buttonPanel);
         button.GetComponentInChildren<TMP_Text>().SetText(name);
         button.onClick.AddListener(() => action());
+        _buttons.Add(button);
     }
 
     void RefreshButtons()
     {
-        // for (var i = _buttons.Count - 1; i >= 0; i--)
-        //     Destroy(_buttons[i].gameObject);
+        for (var i = _buttons.Count - 1; i >= 0; i--)
+            Destroy(_buttons[i].gameObject);
+        _buttons.Clear();
+        
         foreach (var shortcut in ShortcutManager.Shortcuts)
             AddButton(shortcut.Key, shortcut.Value);
     }

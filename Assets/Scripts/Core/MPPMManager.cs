@@ -73,7 +73,8 @@ public class MPPMManager : MonoBehaviour
 
     static void Server()
     {
-        NetworkManager.Singleton.gameObject.GetComponent<UnityTransport>().SetConnectionData("127.0.0.1", 7777);
+        // NetworkManager.Singleton.gameObject.GetComponent<UnityTransport>().SetConnectionData("127.0.0.1", 7777);
+        NetworkManager.Singleton.gameObject.GetComponent<UnityTransport>().SetConnectionData("0.0.0.0", 7777);
         NetworkManager.Singleton.StartServer();
     }
 
@@ -85,7 +86,12 @@ public class MPPMManager : MonoBehaviour
 
         Debug.Log("Start Client");
 
-        NetworkManager.Singleton.gameObject.GetComponent<UnityTransport>().SetConnectionData("127.0.0.1", 7777);
+        var transport = NetworkManager.Singleton.gameObject.GetComponent<UnityTransport>();
+        if ( transport.Protocol == UnityTransport.ProtocolType.RelayUnityTransport)
+            transport.SetConnectionData("127.0.0.1", 7777);
+        
+        
+    
         PlayerConnectionsManager.Instance.StartClient();
         NetworkManager.Singleton.OnClientDisconnectCallback += args =>
         {
@@ -100,7 +106,9 @@ public class MPPMManager : MonoBehaviour
         Debug.Log("Starting Host");
         yield return AuthenticationManager.Instance.SignInAnonAsync("Host" + profileName);
 
-        NetworkManager.Singleton.gameObject.GetComponent<UnityTransport>().SetConnectionData("127.0.0.1", 7777);
+        //NetworkManager.Singleton.gameObject.GetComponent<UnityTransport>().SetConnectionData("127.0.0.1", 7777);
+        NetworkManager.Singleton.gameObject.GetComponent<UnityTransport>().SetConnectionData("0.0.0.0", 7777);
+
         yield return PlayerConnectionsManager.Instance.StartHostOnServer();
 
         //yield return ReloadExistingTrackOrLoadDefault();

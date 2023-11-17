@@ -1,44 +1,50 @@
 using System;
-using Unity.Collections;
 using Unity.Netcode;
 using UnityEngine;
 
 [RequireComponent(typeof(CarPowerups), typeof(Wheel), typeof(CarInput))]
-[RequireComponent(typeof(CarLapCounter), typeof(CarSpawn))]
+[RequireComponent(typeof(CarLapCounter), typeof(CarSpawn), typeof(Car))]
 public class CarClientMovementController : NetworkBehaviour
 {
     float _velocityMultiplier = 100f;
 
+    [Header("Car Settings - Per Car")]
     [SerializeField] float _maxSpeed = 5f;
     [SerializeField] float _turnSpeed = 1f;
-    [SerializeField] Rigidbody _rigidbody;
+
+    [Header("Physics Settings")]
     [SerializeField] ForceMode _forceMode;
 
-    public bool IsLocalPlayersCar => OwnerName.Value == AuthenticationManager.LocalPlayerName;
+
     public int MaxSpeed => Convert.ToInt32(_maxSpeed);
     public int TurnSpeed => Convert.ToInt32(_turnSpeed / 10f);
-    public NetworkVariable<FixedString32Bytes> OwnerName;
 
+    Car _car;
     CarInput _input;
     Wheels _wheels;
     CarPowerups _powerups;
     TerrainDetector _terrainDetector;
-    bool _frozen;
     CarParticles _particles;
+    Rigidbody _rigidbody;
+
+    bool _frozen;
 
     void Awake()
     {
+        _car = GetComponent<Car>();
         _input = GetComponent<CarInput>();
         _wheels = GetComponent<Wheels>();
         _powerups = GetComponent<CarPowerups>();
         _terrainDetector = GetComponent<TerrainDetector>();
         _particles = GetComponent<CarParticles>();
-        OwnerName = new NetworkVariable<FixedString32Bytes>();
+        _rigidbody = GetComponent<Rigidbody>();
+
     }
+
 
     void Update()
     {
-        if (IsLocalPlayersCar)
+        if (_car.IsLocalPlayers)
             UpdateMovement();
     }
 

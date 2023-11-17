@@ -10,7 +10,7 @@ public class NetworkPlayer : NetworkBehaviour
 {
     [SerializeField] List<GameObject> _carPrefabs;
 
-    GameObject _car;
+    Car _car;
 
     public NetworkVariable<FixedString32Bytes> PlayerId;
     public NetworkVariable<FixedString32Bytes> PlayerName;
@@ -25,6 +25,7 @@ public class NetworkPlayer : NetworkBehaviour
 
     public override void OnNetworkDespawn()
     {
+        Debug.LogError("Player OnNetworkDespawn for " + PlayerName.Value);
         if (IsServer)
             _car.GetComponent<NetworkObject>().ChangeOwnership(0);
         base.OnNetworkDespawn();
@@ -32,20 +33,20 @@ public class NetworkPlayer : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        var playerName = PlayerConnectionsManager.Instance.GetName(OwnerClientId);
-
         if (IsOwner)
             PlayerId.Value = AuthenticationManager.Instance.GetPlayerIdCached();
 
         if (IsServer)
         {
+            var playerName = PlayerConnectionsManager.Instance.GetName(OwnerClientId);
             PlayerName.Value = playerName;
 
             gameObject.name = "NetworkPlayer (" + playerName + ")";
             PlayerConnectionsManager.Instance.RegisterPlayerAndRemoveDuplicates(this);
+            Debug.LogError("3. Player Spawn Completed for " + playerName + " on " + (IsServer ? "Server" : "Client"));
+
         }
 
-        Debug.LogError("3. Player Spawn Completed for " + playerName + " on " + (IsServer ? "Server" : "Client"));
     }
 
     public void SpawnCarOnServer()
@@ -61,15 +62,15 @@ public class NetworkPlayer : NetworkBehaviour
         string carName = PlayerConnectionsManager.Instance.GetCar(OwnerClientId);
         Debug.Log($"Spawning {carName}");
 
-        var sp = GetRandomSpawnPoint();
+        var sp = GetNextSpawnPoint();
         var carPrefab =
             _carPrefabs.FirstOrDefault(t => t.name.Equals(carName, StringComparison.InvariantCultureIgnoreCase)) ??
             _carPrefabs.FirstOrDefault();
-        _car = Instantiate(carPrefab, sp.position, sp.rotation);
+        _car = Instantiate(carPrefab, sp.position, sp.rotation).GetComponent<Car>();
         SceneManager.MoveGameObjectToScene(_car.gameObject, ProjectSceneManager.Instance.CurrentTrackScene);
-        _car.GetComponent<NetworkObject>().SpawnWithOwnership(OwnerClientId, true);
-
-        _car.GetComponent<CarClientMovementController>().OwnerName.Value = PlayerName.Value;
+        _car.GetComponent<ExtrapolatedNetworkMovement>().InitializeForSync();
+        _car.NetworkObject.SpawnWithOwnership(OwnerClientId, true);
+        _car.OwnerName.Value = PlayerName.Value;
     }
 
     public ClientRpcParams OwnerOnlyRpcParms()
@@ -80,16 +81,15 @@ public class NetworkPlayer : NetworkBehaviour
         };
     }
 
-    Transform GetRandomSpawnPoint()
+    static int _nextSpawnPoint;
+    Transform GetNextSpawnPoint()
     {
         var spawnPoints = GameObject.FindGameObjectsWithTag("Respawn");
-        if (spawnPoints.Any())
-        {
-            var spawnPoint = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length)];
-            return spawnPoint.transform;
-        }
+        if (_nextSpawnPoint > spawnPoints.Length)
+            _nextSpawnPoint = 0;
 
-        return default;
+        _nextSpawnPoint++;
+        return spawnPoints[_nextSpawnPoint].transform;
     }
 
     #region Helpers (could be moved)

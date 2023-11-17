@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Unity.Netcode;
+using Unity.Netcode.Transports.UTP;
 using UnityEngine;
 
 public class PlayerConnectionsManager : NetworkBehaviour
@@ -23,6 +24,7 @@ public class PlayerConnectionsManager : NetworkBehaviour
     {
         NetworkManager.Singleton.NetworkConfig.ConnectionApproval = true;
         NetworkManager.Singleton.ConnectionApprovalCallback = HandleConnectionApprovalOnServer;
+        ShortcutManager.Add("Client Connect", StartClient);
     }
 
     public async Awaitable StartHostOnServer()
@@ -88,6 +90,9 @@ public class PlayerConnectionsManager : NetworkBehaviour
     public async void StartClient()
     {
         await AddPayloadData();
+        var transport = NetworkManager.Singleton.GetComponent<UnityTransport>();
+        Debug.LogError(transport.ConnectionData.Address);
+        Debug.LogError(transport.ConnectionData);
         NetworkManager.Singleton.StartClient();
     }
 

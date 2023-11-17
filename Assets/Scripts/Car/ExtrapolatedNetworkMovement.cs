@@ -1,46 +1,64 @@
-﻿using System;
-using Unity.Netcode;
+﻿using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ExtrapolatedNetworkMovement : NetworkBehaviour
 {
-    Rigidbody _rb;
-    Vector3 netPosition;
-    Vector3 netVelocity;
-    Vector3 netOrientation;
-    double netServerTime;
-    double snapThreshold = 1f;
-    [SerializeField] double _tolerance = 0.01f;
-    [SerializeField] bool shouldSendFromClient;
-    [SerializeField] bool shouldSendFromServer;
+    public Vector3 netPosition;
+    public Vector3 netVelocity;
+    public Vector3 netOrientation;
+    public double netServerTime;
+
+    Vector3 estimatedPosition;
     bool _dirty;
 
-    void Awake()
+    [SerializeField] double _snapThreshold = 5f;
+    [SerializeField] double _tolerance = 0.01f;
+
+    public bool shouldSendFromClient;
+    public bool shouldSendFromServer;
+
+    Rigidbody _rb;
+
+    void Awake() => _rb = GetComponent<Rigidbody>();
+
+    void Update()
     {
-        _rb = GetComponent<Rigidbody>();
-        NetworkManager.Singleton.NetworkTickSystem.Tick += HandleNetworkTick;
+        if (!IsOwner && netServerTime != 0)
+        {
+            if (Vector3.Distance(_rb.position, estimatedPosition) > _snapThreshold)
+                _rb.position = estimatedPosition;
+            else
+                _rb.position = Vector3.Lerp(_rb.position, estimatedPosition, 0.5f);
+
+            _rb.transform.forward = Vector3.Lerp(_rb.transform.forward, netOrientation, 0.5f);
+        }
     }
 
-    static event Action OnAnyCarSpawned;
-    void Start()
-    {
-        OnAnyCarSpawned?.Invoke();
-        OnAnyCarSpawned += SetDirty;
-    }
-
-    public override void OnNetworkDespawn()
-    {
-        OnAnyCarSpawned -= SetDirty;
-        base.OnNetworkDespawn();
-    }
-
-    void SetDirty() => _dirty = true;
+    void OnEnable() => NetworkManager.Singleton.NetworkTickSystem.Tick += HandleNetworkTick;
+    void OnDisable() => NetworkManager.Singleton.NetworkTickSystem.Tick -= HandleNetworkTick;
 
     public override void OnDestroy()
     {
         if (NetworkManager.Singleton != null && NetworkManager.Singleton.NetworkTickSystem != null)
             NetworkManager.Singleton.NetworkTickSystem.Tick -= HandleNetworkTick;
         base.OnDestroy();
+    }
+
+    public void InitializeForSync()
+    {
+        // Write the data to be synchronized before Spawn causes OnSynchronize to be called
+        UpdateLocalData(transform.position, _rb.velocity, transform.forward, 0);
+    }
+
+    protected override void OnSynchronize<T>(ref BufferSerializer<T> serializer)
+    {
+        // This is written on the server and read on clients when they spawn
+        serializer.SerializeValue(ref netPosition);
+        serializer.SerializeValue(ref netVelocity);
+        serializer.SerializeValue(ref netOrientation);
+        serializer.SerializeValue(ref netServerTime);
+        base.OnSynchronize(ref serializer);
     }
 
     void HandleNetworkTick()
@@ -52,6 +70,7 @@ public class ExtrapolatedNetworkMovement : NetworkBehaviour
         {
             SendMovementToClientRpc(netPosition, netVelocity, netOrientation, netServerTime);
             _dirty = false;
+            return;
         }
 
         if (!IsOwner)
@@ -60,28 +79,32 @@ public class ExtrapolatedNetworkMovement : NetworkBehaviour
             return;
         }
 
-        shouldSendFromServer = false; // Debug variables to show when messages will send and wont send
-        shouldSendFromClient = ShouldSend(_rb.position, _rb.velocity, _rb.transform.forward,
-            NetworkManager.Singleton.ServerTime.Time);
-
-        if (shouldSendFromClient)
+        if (IsClient)
         {
-            SendMovementToServerRpc(_rb.position,
-                _rb.velocity,
-                _rb.transform.forward,
+            shouldSendFromClient = ShouldSend(_rb.position, _rb.velocity, _rb.transform.forward,
                 NetworkManager.Singleton.ServerTime.Time);
+
+            if (shouldSendFromClient)
+            {
+                SendMovementToServerRpc(_rb.position,
+                    _rb.velocity,
+                    _rb.transform.forward,
+                    NetworkManager.Singleton.ServerTime.Time);
+            }
         }
     }
 
     void ExtrapolateMovementFromPreviousData()
     {
+        if (netServerTime == 0)
+        {
+            _rb.position = netPosition;
+            _rb.transform.forward = netOrientation;
+            return;
+        }
+
         double elapsed = NetworkManager.Singleton.ServerTime.Time - netServerTime;
-        var estimatedPosition = netPosition + netVelocity * (float)elapsed;
-
-        if (Vector3.Distance(_rb.position, estimatedPosition) > snapThreshold)
-            _rb.position = Vector3.Lerp(_rb.position, estimatedPosition, Time.deltaTime * 10);
-
-        _rb.transform.forward = Vector3.Lerp(_rb.transform.forward, netOrientation, Time.deltaTime * 10f);
+        estimatedPosition = netPosition + netVelocity * (float) elapsed;
     }
 
     [ServerRpc(Delivery = RpcDelivery.Unreliable)]
@@ -99,7 +122,8 @@ public class ExtrapolatedNetworkMovement : NetworkBehaviour
     {
         return Vector3.Distance(netPosition, position) > _tolerance ||
                Vector3.Distance(netVelocity, velocity) > _tolerance ||
-               Vector3.Distance(netOrientation, orientation) > _tolerance;
+               Vector3.Distance(netOrientation, orientation) > _tolerance ||
+               serverTime - netServerTime > 0.25;
     }
 
     [ClientRpc(Delivery = RpcDelivery.Unreliable)]

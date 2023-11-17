@@ -98,6 +98,8 @@ public class AuthenticationManager : MonoBehaviour
 
     async void HandlePlayerSignedIn()
     {
+        AuthenticationService.Instance.SignedIn -= HandlePlayerSignedIn;
+
         var currentName = await GetPlayerNameAsync();
         if (String.IsNullOrWhiteSpace(currentName))
         {

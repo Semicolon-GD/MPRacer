@@ -131,7 +131,7 @@ public class ProjectSceneManager : NetworkBehaviour
         var player = playerNetworkObject.GetComponent<NetworkPlayer>();
         string playerName = player.PlayerName.Value.Value;
 
-        var allCars = FindObjectsByType<CarClientMovementController>(FindObjectsSortMode.None);
+        var allCars = FindObjectsByType<Car>(FindObjectsSortMode.None);
         var existingCar = allCars.FirstOrDefault(t => t.OwnerName.Value.Value.Equals(playerName));
         if (existingCar != null)
         {

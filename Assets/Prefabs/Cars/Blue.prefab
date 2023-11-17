@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4405211093644187446, guid: c4cad50aa03bbca42938fe318344950b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 570875811412594171, guid: c4cad50aa03bbca42938fe318344950b, type: 3}
       propertyPath: _maxSpeed
       value: 11
@@ -19,6 +23,10 @@ PrefabInstance:
     - target: {fileID: 1248598967819147742, guid: c4cad50aa03bbca42938fe318344950b, type: 3}
       propertyPath: m_Name
       value: Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 1559042816567114372, guid: c4cad50aa03bbca42938fe318344950b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1880317207959290724, guid: c4cad50aa03bbca42938fe318344950b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -66,7 +74,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: d2344366b80fe3d4f886ec412e0174fa, type: 2}
     - target: {fileID: 6036338960782827549, guid: c4cad50aa03bbca42938fe318344950b, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 2597628846
+      value: 3637662134
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
