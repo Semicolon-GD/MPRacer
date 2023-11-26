@@ -54,8 +54,8 @@ public class CarUnlockManager : MonoBehaviour
         TrophyCount = balancesResult.Balances.First(t => t.CurrencyId == "TROPHY").Balance;
     }
 
-    public bool IsCarUnlocked(string carItemId) =>
-        Inventory?.Any(t => t.InventoryItemId == carItemId) == true;
+    public bool IsCarUnlocked(string carItemId) => true;
+        //Inventory?.Any(t => t.InventoryItemId == carItemId) == true;
 
 
     [ContextMenu(nameof(Add20Trophies))]

@@ -2,12 +2,14 @@ using System;
 using System.Threading.Tasks;
 using Unity.Collections;
 using Unity.Services.Authentication;
+using Unity.Services.Authentication.PlayerAccounts;
 using Unity.Services.Core;
-using Unity.Services.PlayerAccounts;
 using UnityEngine;
 
 public class AuthenticationManager : MonoBehaviour
 {
+    const float MESSAGE_LIMIT_RATE = 1.2f;
+    
     PlayerInfo _playerInfo;
     public static AuthenticationManager Instance { get; private set; }
 
@@ -44,6 +46,7 @@ public class AuthenticationManager : MonoBehaviour
         AuthenticationService.Instance.SignedIn += HandleSignedInAnon;
         AuthenticationService.Instance.SignedOut += HandleSignedOut;
         AuthenticationService.Instance.SignInFailed += HandleSignInFailed;
+        PlayerAccountService.Instance.SignedIn += PlayerAccountAnonLoginComplete;
     }
 
     void OnDestroy()
@@ -53,13 +56,15 @@ public class AuthenticationManager : MonoBehaviour
             AuthenticationService.Instance.SignedIn -= HandleSignedInAnon;
             AuthenticationService.Instance.SignedOut -= HandleSignedOut;
             AuthenticationService.Instance.SignInFailed -= HandleSignInFailed;
+            PlayerAccountService.Instance.SignedIn -= PlayerAccountAnonLoginComplete;
+
             Instance = null;
         }
     }
 
     void HandleSignedInAnon()
     {
-        Debug.Log("Signed In Anon");
+        Debug.Log("Signed In");
         OnSignedIn?.Invoke();
     }
 
@@ -79,7 +84,7 @@ public class AuthenticationManager : MonoBehaviour
         if (AuthenticationService.Instance.IsSignedIn)
         {
             AuthenticationService.Instance.SignOut();
-            await Awaitable.WaitForSecondsAsync(1.2f);
+            await Awaitable.WaitForSecondsAsync(MESSAGE_LIMIT_RATE);
         }
 
         if (playerName == default && AuthenticationService.Instance.SessionTokenExists)
@@ -112,15 +117,41 @@ public class AuthenticationManager : MonoBehaviour
         }
     }
 
-    public async Task SignInUnityAsync()
+    public async void StartSignInUnityAsync()
+    {
+        if (PlayerAccountService.Instance.IsSignedIn)
+        {
+            await SignInUnityAsync();
+        }
+        else
+        {
+            try
+            {
+                await PlayerAccountService.Instance.StartSignInAsync();
+            }
+            catch (RequestFailedException ex)
+            {
+                Debug.LogException(ex);
+            }
+        }
+    }
+
+    async void PlayerAccountAnonLoginComplete()
+    {
+        await SignInUnityAsync();
+    }
+
+    async Task SignInUnityAsync()
     {
         Debug.Log("Signing In With Unity");
-        await PlayerAccountService.Instance.StartSignInAsync();
+        var token = PlayerAccountService.Instance.AccessToken;
+
+        await AuthenticationService.Instance.SignInWithUnityAsync(token, new SignInOptions() { CreateAccount = true });
     }
 
     async void UpgradeAccountFromAnonToUnityAsync()
     {
-        var token = PlayerAccountService.Instance.AccessToken;
+        var token = AuthenticationService.Instance.AccessToken;
         await AuthenticationService.Instance.LinkWithUnityAsync(token);
         Debug.Log("Link Sent");
     }
@@ -141,7 +172,7 @@ public class AuthenticationManager : MonoBehaviour
         return _playerInfo.Id;
     }
 
-    public async Task SignInFromUIAsync()
+    public async Task SignInAnonFromUIAsync()
     {
         await SignInAnonAsync( LocalPlayerName);
     }

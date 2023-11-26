@@ -93,7 +93,7 @@ public class GameManager : NetworkBehaviour
         if (IsHost == false)
             return;
 
-        if (lapsCompleteValue < 2) // one lap to win for testing
+        if (lapsCompleteValue < 20) // one lap to win for testing
             return;
 
         var allPlayers = FindObjectsByType<NetworkPlayer>(FindObjectsSortMode.None);

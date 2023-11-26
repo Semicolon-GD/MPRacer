@@ -21,7 +21,7 @@ public class CarButton : MonoBehaviour
     [SerializeField] TMP_Text _speedText;
     [SerializeField] TMP_Text _turnText;
 
-    CarDefinition _carDefinition;
+    [SerializeField] CarDefinition _carDefinition; // can be pulled from economy once setup
     string _carPurchaseId;
     string _carItemId;
 

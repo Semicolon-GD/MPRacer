@@ -1,4 +1,7 @@
-﻿using Unity.Netcode;
+﻿using System;
+using System.Linq;
+using Unity.Collections;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -10,7 +13,6 @@ public class ExtrapolatedNetworkMovement : NetworkBehaviour
     public double netServerTime;
 
     Vector3 estimatedPosition;
-    bool _dirty;
 
     [SerializeField] double _snapThreshold = 5f;
     [SerializeField] double _tolerance = 0.01f;
@@ -66,13 +68,6 @@ public class ExtrapolatedNetworkMovement : NetworkBehaviour
         if (!enabled)
             return;
 
-        if (IsServer && _dirty)
-        {
-            SendMovementToClientRpc(netPosition, netVelocity, netOrientation, netServerTime);
-            _dirty = false;
-            return;
-        }
-
         if (!IsOwner)
         {
             ExtrapolateMovementFromPreviousData();
@@ -114,11 +109,26 @@ public class ExtrapolatedNetworkMovement : NetworkBehaviour
         if (shouldSendFromServer)
         {
             UpdateLocalData(position, velocity, orientation, serverTime);
-            SendMovementToClientRpc(position, velocity, orientation, serverTime);
+            SendMovementToClientRpc(position, velocity, orientation, serverTime, SendToOthers());
+
         }
     }
 
-    bool ShouldSend(Vector3 position, Vector3 velocity, Vector3 orientation, double serverTime)
+    ClientRpcParams SendToOthers()
+    {
+        var others = FindObjectsByType<ExtrapolatedNetworkMovement>(FindObjectsSortMode.None)
+            .Where(t => t != this)
+            .Select(t => t.NetworkObject.OwnerClientId);
+        return new ClientRpcParams()
+        {
+            Send = new()
+            {
+                TargetClientIds = others.ToArray()
+            }
+        };
+    }
+
+bool ShouldSend(Vector3 position, Vector3 velocity, Vector3 orientation, double serverTime)
     {
         return Vector3.Distance(netPosition, position) > _tolerance ||
                Vector3.Distance(netVelocity, velocity) > _tolerance ||
@@ -127,7 +137,7 @@ public class ExtrapolatedNetworkMovement : NetworkBehaviour
     }
 
     [ClientRpc(Delivery = RpcDelivery.Unreliable)]
-    void SendMovementToClientRpc(Vector3 position, Vector3 velocity, Vector3 orientation, double serverTime)
+    void SendMovementToClientRpc(Vector3 position, Vector3 velocity, Vector3 orientation, double serverTime, ClientRpcParams rpcParams)
     {
         UpdateLocalData(position, velocity, orientation, serverTime);
     }

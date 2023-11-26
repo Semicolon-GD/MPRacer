@@ -6,7 +6,6 @@ using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using Unity.Services.Authentication;
 using Unity.Services.Lobbies.Models;
-using Unity.Services.PlayerAccounts;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -195,12 +194,4 @@ public class MPPMManager : MonoBehaviour
         PlayerPrefs.DeleteKey("LobbyId");
     }
     #endif
-}
-
-public enum GameState : byte
-{
-    WaitingForPlayers,
-    CountDown,
-    Racing,
-    GameOver
 }

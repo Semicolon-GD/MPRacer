@@ -12,8 +12,8 @@ public class LobbyListPanel : MonoBehaviour
     public void Initialize()
     {
         _autoRefreshToggle.onValueChanged.AddListener(LobbyManager.Instance.ToggleAutoRefreshLobbies);
-        LobbyManager.Instance.OnLobbiesUpdated += UpdateLobbiesUI;
         LobbyManager.Instance.ToggleAutoRefreshLobbies(_autoRefreshToggle.isOn);
+        LobbyManager.Instance.OnLobbiesUpdated += UpdateLobbiesUI;
         LobbyManager.Instance.OnCountdownUpdated += HideForCountdown;
     }
 

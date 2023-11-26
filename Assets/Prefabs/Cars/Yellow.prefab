@@ -145,6 +145,7 @@ GameObject:
   - component: {fileID: 7623439789144065612}
   - component: {fileID: 1559042816567114372}
   - component: {fileID: 7905785933411917428}
+  - component: {fileID: 566467605220742737}
   m_Layer: 0
   m_Name: Yellow
   m_TagString: Untagged
@@ -350,6 +351,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89ab5e615c1641b988789167b06ae1aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  netPosition: {x: 0, y: 0, z: 0}
+  netVelocity: {x: 0, y: 0, z: 0}
+  netOrientation: {x: 0, y: 0, z: 0}
+  netServerTime: 0
+  _snapThreshold: 5
   _tolerance: 0.009999999776482582
   shouldSendFromClient: 0
   shouldSendFromServer: 0
@@ -546,6 +552,20 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &566467605220742737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248598967819147742}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1b45939b6d14147833d72a94214073f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DistanceToNextPoint: 0
+  CurrentTrackPoints: []
 --- !u!1 &1532183532590448871
 GameObject:
   m_ObjectHideFlags: 0

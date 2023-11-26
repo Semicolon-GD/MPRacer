@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+using NUnit.Framework;
 using TMPro;
 using Unity.Netcode;
+using Unity.Services.Authentication;
 using Unity.Services.Lobbies.Models;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,8 +24,10 @@ public class CurrentLobbyPanel : MonoBehaviour
     [SerializeField] TMP_InputField _renameLobbyInput;
     [SerializeField] GameObject _renameLobbyPanel;
     [SerializeField] Button _startGameButton;
-    
+    [SerializeField] Button _readyToggleButton;
+
     List<TrackSelectionToggle> _tracks;
+    bool _isReadyClient;
 
     public static CurrentLobbyPanel Instance { get; private set; }
 
@@ -41,15 +46,26 @@ public class CurrentLobbyPanel : MonoBehaviour
         _confirmRenameLobbyButton.onClick.AddListener(ConfirmRenameLobby);
         _cancelRenameLobbyButton.onClick.AddListener(CancelRenameLobby);
         _startGameButton.onClick.AddListener(TryStartGame);
+        _readyToggleButton.onClick.AddListener(ToggleReadyStateOnNonHost);
 
         _renameLobbyPanel.SetActive(false);
         _countdownTimerText.gameObject.SetActive(false);
         _countdownTimerPanel.SetActive(false);
     }
 
+    async void ToggleReadyStateOnNonHost()
+    {
+        _isReadyClient = !_isReadyClient;
+        _readyToggleButton.GetComponentInChildren<TMP_Text>().color = _isReadyClient ? Color.green : Color.red;
+        await LobbyManager.Instance.SetClientReadyState(_isReadyClient);
+    }
+
     void OnEnable()
     {
-        _startGameButton.interactable = NetworkManager.Singleton?.IsHost == true;
+        _startGameButton.gameObject.SetActive(LobbyManager.Instance.IsLocalPlayerLobbyHost);
+        _startGameButton.interactable = LobbyManager.Instance.IsLocalPlayerLobbyHost;
+        _readyToggleButton.gameObject.SetActive(!LobbyManager.Instance.IsLocalPlayerLobbyHost);
+        _readyToggleButton.interactable = !LobbyManager.Instance.IsLocalPlayerLobbyHost;
     }
 
     async void TryStartGame()
@@ -88,7 +104,7 @@ public class CurrentLobbyPanel : MonoBehaviour
 
     void LobbyHostChanged()
     {
-        UpdateTrackToggleEnabledState();
+        HandleLobbyStateChanged();
     }
 
     void LeftLobby() => gameObject.SetActive(false);
@@ -114,15 +130,31 @@ public class CurrentLobbyPanel : MonoBehaviour
     {
         gameObject.SetActive(true);
         _headerText.SetText(obj.Name);
-        UpdateTrackToggleEnabledState();
+        HandleLobbyStateChanged();
 
         UpdatePlayersText();
         UpdateSelectedTrack();
     }
 
-    void UpdateTrackToggleEnabledState()
+    void HandleLobbyStateChanged()
     {
         _renameLobbyButton.interactable = LobbyManager.Instance.IsLocalPlayerLobbyHost;
+        var notReadyPlayers = new List<Player>();
+        foreach (var player in LobbyManager.Instance.CurrentLobby.Players)
+        {
+            if (player.Data == null)
+                notReadyPlayers.Add(player);
+            else if (player.Data.TryGetValue("isReady", out var isReady) == false)
+                notReadyPlayers.Add(player);
+            else if (isReady?.Value == "false")
+                notReadyPlayers.Add(player);
+        }
+
+        foreach (var player in notReadyPlayers)
+        {
+            Debug.LogWarning($"Player not ready {player.Id} - {player.Data?["name"]}");
+        }
+
         _startGameButton.interactable = LobbyManager.Instance.IsLocalPlayerLobbyHost;
         foreach (var track in _tracks)
         {
@@ -153,6 +185,12 @@ public class CurrentLobbyPanel : MonoBehaviour
                 b.Append(playerName.Value);
                 if (player.Data.TryGetValue("car", out var carName))
                     b.Append(" - " + carName.Value);
+                if (player.Data.TryGetValue("isready", out var isReady))
+                {
+                    string readyText = isReady.Value == "true" ? " - READY" : " - NOT READY";
+                    b.Append(readyText);
+                }
+
                 b.AppendLine();
             }
         }

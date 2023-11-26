@@ -3,17 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Newtonsoft.Json.Converters;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using Unity.Networking.Transport;
 using Unity.Services.Authentication;
-using Unity.Services.Core;
 using Unity.Services.Lobbies;
 using Unity.Services.Lobbies.Models;
 using Unity.Services.Relay;
 using Unity.Services.Relay.Models;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class LobbyManager : MonoBehaviour
@@ -25,7 +22,6 @@ public class LobbyManager : MonoBehaviour
     float _lastLobbyRefreshTime;
     List<Lobby> _lobbies;
     Coroutine _refreshLobbiesRoutine;
-
 
     public bool IsLocalPlayerLobbyHost =>
         CurrentLobby != null && CurrentLobby.HostId == AuthenticationService.Instance?.PlayerId;
@@ -51,6 +47,7 @@ public class LobbyManager : MonoBehaviour
         OnJoinedLobby?.Invoke(CurrentLobby);
 
         await UpdatePlayerIdInLobby();
+        await SetClientReadyState(true);
 
         // Heartbeat the lobby every 15 seconds.
         StartCoroutine(HeartbeatLobbyCoroutine(CurrentLobby.Id, 15));
@@ -130,9 +127,9 @@ public class LobbyManager : MonoBehaviour
 
     public async Awaitable RefreshLobbies()
     {
-        var lobbies = await LobbyService.Instance.QueryLobbiesAsync();
-        _lobbies = lobbies.Results;
-        OnLobbiesUpdated?.Invoke(lobbies.Results);
+        var queryResponse = await LobbyService.Instance.QueryLobbiesAsync();
+        _lobbies = queryResponse.Results;
+        OnLobbiesUpdated?.Invoke(_lobbies);
     }
 
     async void HandleCurrentLobbyChanged(ILobbyChanges changes)
@@ -156,6 +153,7 @@ public class LobbyManager : MonoBehaviour
         CurrentLobby = await LobbyService.Instance.JoinLobbyByIdAsync(lobby.Id);
         Debug.Log($"Joined {CurrentLobby.Name}");
         await UpdatePlayerIdInLobby();
+        
         LobbyEventCallbacks callbacks = new LobbyEventCallbacks();
         callbacks.LobbyChanged += HandleCurrentLobbyChanged;
         await LobbyService.Instance.SubscribeToLobbyEventsAsync(CurrentLobby.Id, callbacks);
@@ -264,15 +262,13 @@ public class LobbyManager : MonoBehaviour
         NetworkManager.Singleton.StartClient();
     }
 
-
-
     public async Task RequestStartGame()
     {
         var allocation = await Relay.Instance.CreateAllocationAsync(CurrentLobby.MaxPlayers);
         var relaycode = await Relay.Instance.GetJoinCodeAsync(allocation.AllocationId);
         var options = new UpdateLobbyOptions();
         options.Data = new Dictionary<string, DataObject>();
-        options.Data["relaycode"] = new DataObject(DataObject.VisibilityOptions.Public, relaycode);
+        options.Data["relaycode"] = new DataObject(DataObject.VisibilityOptions.Member, relaycode);
         CurrentLobby = await LobbyService.Instance.UpdateLobbyAsync(CurrentLobby.Id, options);
         Debug.LogWarning($"Updated Relay code to {CurrentLobby.Data["relaycode"].Value}");
 
@@ -344,6 +340,16 @@ public class LobbyManager : MonoBehaviour
     {
         var options = new UpdatePlayerOptions() { Data = new() };
         options.Data["car"] = new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, carDefinitionName);
+        CurrentLobby = await LobbyService.Instance.UpdatePlayerAsync(LobbyManager.Instance.CurrentLobby.Id,
+            AuthenticationService.Instance.PlayerId,
+            options);
+        OnCurrentLobbyUpdated?.Invoke();
+    }
+
+    public async Task SetClientReadyState(bool isReady)
+    {
+        var options = new UpdatePlayerOptions() { Data = new() };
+        options.Data["isready"] = new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, isReady ? "true" : "false");
         CurrentLobby = await LobbyService.Instance.UpdatePlayerAsync(LobbyManager.Instance.CurrentLobby.Id,
             AuthenticationService.Instance.PlayerId,
             options);

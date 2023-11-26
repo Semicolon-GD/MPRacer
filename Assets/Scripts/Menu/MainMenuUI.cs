@@ -12,8 +12,8 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] Button _unityLoginButton;
     [SerializeField] TMP_InputField _nameInput;
 
-    [Header("Lobby Buttons")] [SerializeField]
-    Button _hostButton;
+    [Header("Lobby Buttons")] 
+    [SerializeField] Button _hostButton;
 
     [SerializeField] Button _refreshLobbiesButton;
 
@@ -76,7 +76,7 @@ public class MainMenuUI : MonoBehaviour
         try
         {
             _loginButtonsPanel.SetActive(false);
-            await AuthenticationManager.Instance.SignInFromUIAsync();
+            await AuthenticationManager.Instance.SignInAnonFromUIAsync();
         }
         catch (AuthenticationException exception)
         {
@@ -85,13 +85,13 @@ public class MainMenuUI : MonoBehaviour
         }
     }
 
-    async void LoginUnity()
+    void LoginUnity()
     {
         try
         {
             _loginButtonsPanel.SetActive(false);
 
-            await AuthenticationManager.Instance.SignInUnityAsync();
+            AuthenticationManager.Instance.StartSignInUnityAsync();
         }
         catch (AuthenticationException exception)
         {
