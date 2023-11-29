@@ -13,6 +13,10 @@ public class PlayerConnectionsManager : NetworkBehaviour
     public Dictionary<ulong, string> PlayerConnectionsToNames = new();
     public Dictionary<ulong, string> PlayerConnectionToCars = new();
     public List<string> PlayerNames;
+    
+    /// <summary>
+    /// For MPPM Mode
+    /// </summary>
     public string LocalCarSelection { get; set; }
 
 
@@ -24,7 +28,6 @@ public class PlayerConnectionsManager : NetworkBehaviour
     {
         NetworkManager.Singleton.NetworkConfig.ConnectionApproval = true;
         NetworkManager.Singleton.ConnectionApprovalCallback = HandleConnectionApprovalOnServer;
-        ShortcutManager.Add("Client Connect", StartClient);
     }
 
     public async Awaitable StartHostOnServer()
@@ -33,22 +36,21 @@ public class PlayerConnectionsManager : NetworkBehaviour
         NetworkManager.Singleton.StartHost();
     }
 
-    async Task AddPayloadData()
+    public async Task AddPayloadData()
     {
         #if UNITY_EDITOR // Editor only Logging
             var profileName = FindFirstObjectByType<MPPMManager>().profileName;
             Debug.Log($"Getting PlayerName for Profile {profileName}");
         #endif
 
-        string playerName = await AuthenticationManager.Instance.GetPlayerNameAsync();
+        string playerName = AuthenticationManager.Instance.GetPlayerName();
         await Awaitable.WaitForSecondsAsync(1f);
-        string id = await AuthenticationManager.Instance.GetPlayerIdAsync();
-        string car = LocalCarSelection ?? "red";
+        
+        string car = CarUnlockManager.Instance.SelectedCarItemId ?? LocalCarSelection ?? "yellow";
 
         RaceGameConnectionData data = new()
         {
             Name = playerName,
-            Id = id,
             Car = car
         };
         var json = JsonUtility.ToJson(data);
@@ -87,7 +89,7 @@ public class PlayerConnectionsManager : NetworkBehaviour
         Debug.LogError("2. Completed Connection approval for " + data.Name);
     }
 
-    public async void StartClient()
+    public async Awaitable StartClient()
     {
         await AddPayloadData();
         var transport = NetworkManager.Singleton.GetComponent<UnityTransport>();

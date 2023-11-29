@@ -16,20 +16,21 @@ public class CarClientMovementController : NetworkBehaviour
     [SerializeField] ForceMode _forceMode;
 
 
-    public int MaxSpeed => Convert.ToInt32(_maxSpeed);
-    public int TurnSpeed => Convert.ToInt32(_turnSpeed / 10f);
+    public int MaxSpeed => _car.OverrideCustomData?.maxspeed ?? Convert.ToInt32(_maxSpeed);
+    public int TurnSpeed => _car.OverrideCustomData?.turnspeed ?? Convert.ToInt32(_turnSpeed / 10f);
 
-    Car _car;
-    CarInput _input;
-    Wheels _wheels;
-    CarPowerups _powerups;
-    TerrainDetector _terrainDetector;
-    CarParticles _particles;
-    Rigidbody _rigidbody;
+    
+    [SerializeField] Car _car;
+    [SerializeField] CarInput _input;
+    [SerializeField] Wheels _wheels;
+    [SerializeField] CarPowerups _powerups;
+    [SerializeField] TerrainDetector _terrainDetector;
+    [SerializeField] CarParticles _particles;
+    [SerializeField] Rigidbody _rigidbody;
 
     bool _frozen;
 
-    void Awake()
+    void OnValidate()
     {
         _car = GetComponent<Car>();
         _input = GetComponent<CarInput>();
@@ -38,10 +39,8 @@ public class CarClientMovementController : NetworkBehaviour
         _terrainDetector = GetComponent<TerrainDetector>();
         _particles = GetComponent<CarParticles>();
         _rigidbody = GetComponent<Rigidbody>();
-
     }
-
-
+    
     void Update()
     {
         if (_car.IsLocalPlayers)
@@ -62,7 +61,7 @@ public class CarClientMovementController : NetworkBehaviour
 
     void ApplyRotation()
     {
-        float turnAmount = _input.TurnPct * Time.deltaTime * _turnSpeed * _input.ThrottlePct;
+        float turnAmount = _input.TurnPct * Time.deltaTime * (TurnSpeed * 10f) * _input.ThrottlePct;
         turnAmount = _powerups.GetTurnAmount(turnAmount);
         transform.Rotate(0, turnAmount, 0);
     }
@@ -72,7 +71,7 @@ public class CarClientMovementController : NetworkBehaviour
         float moveAmount = _input.Throttle.Value * _velocityMultiplier;
         var flatRotation = new Vector3(transform.forward.x, 0f, transform.forward.z);
 
-        float maxSpeed = _powerups.GetMaxSpeed(_maxSpeed);
+        float maxSpeed = _powerups.GetMaxSpeed(MaxSpeed);
         if (_terrainDetector.IsOnMud)
         {
             // Slowing for mud

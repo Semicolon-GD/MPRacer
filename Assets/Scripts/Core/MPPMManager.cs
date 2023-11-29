@@ -80,7 +80,7 @@ public class MPPMManager : MonoBehaviour
     IEnumerator Client()
     {
         LobbyManager.Instance.gameObject.SetActive(false);
-        Debug.Log("Signing in");
+        Debug.Log("Signing in Client " + profileName);
         yield return AuthenticationManager.Instance.SignInAnonAsync("Client" + profileName);
 
         Debug.Log("Start Client");
@@ -171,7 +171,7 @@ public class MPPMManager : MonoBehaviour
     IEnumerator LobbyHost()
     {
         yield return AuthenticationManager.Instance.SignInAnonAsync("Host" + profileName);
-        yield return new WaitUntil(() => AuthenticationManager.Instance.IsAuthenticated);
+        yield return new WaitUntil(() => AuthenticationService.Instance.IsSignedIn);
 
         var lobbyTask = LobbyManager.Instance.HostLobby();
         yield return new WaitUntil(() => lobbyTask.IsCompleted);

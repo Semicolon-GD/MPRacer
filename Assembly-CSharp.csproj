@@ -1,0 +1,1630 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LangVersion>9.0</LangVersion>
+    <_TargetFrameworkDirectories>non_empty_path_generated_by_unity.rider.package</_TargetFrameworkDirectories>
+    <_FullFrameworkReferenceAssemblyPaths>non_empty_path_generated_by_unity.rider.package</_FullFrameworkReferenceAssemblyPaths>
+    <DisableHandlePackageFileConflicts>true</DisableHandlePackageFileConflicts>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <RootNamespace></RootNamespace>
+    <ProjectGuid>{c3c2518b-3165-11ac-0191-cec493ded61b}</ProjectGuid>
+    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <BaseDirectory>.</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\Bin\Debug\Assembly-CSharp\</OutputPath>
+    <DefineConstants>UNITY_2023_2_0;UNITY_2023_2;UNITY_2023;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_2022_1_OR_NEWER;UNITY_2022_2_OR_NEWER;UNITY_2022_3_OR_NEWER;UNITY_2023_1_OR_NEWER;UNITY_2023_2_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_EDITOR_GAME_SERVICES;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_GENERATE_NATIVE_PLUGINS_FOR_ASSEMBLIES_API;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;ENABLE_NULLDEPTHBUFFER;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_MARSHALLING_TESTS;ENABLE_VIDEO;ENABLE_NAVIGATION_OFFMESHLINK_TO_NAVMESHLINK;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;TEXTCORE_1_0_OR_NEWER;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_NVIDIA;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;PLATFORM_USES_EXPLICIT_MEMORY_MANAGER_INITIALIZER;PLATFORM_SUPPORTS_WAIT_FOR_PRESENTATION;PLATFORM_SUPPORTS_SPLIT_GRAPHICS_JOBS;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;NET_STANDARD_2_1;NETSTANDARD;NETSTANDARD2_1;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;TEXTCORE_TEXT_ENGINE_1_5_OR_NEWER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169,0649</NoWarn>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoConfig>true</NoConfig>
+    <NoStdLib>true</NoStdLib>
+    <AddAdditionalExplicitAssemblyReferences>false</AddAdditionalExplicitAssemblyReferences>
+    <ImplicitlyExpandNETStandardFacades>false</ImplicitlyExpandNETStandardFacades>
+    <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
+  </PropertyGroup>
+  <ItemGroup>
+    <Analyzer Include="C:\Projects\MP Racer\Library\PackageCache\com.unity.transport@2.1.0\Analyzers\Unity.Transport.Analyzers.dll" />
+    <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
+    <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
+    <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\Scripts\Core\MPPMManager.cs" />
+     <Compile Include="Assets\Scripts\Menu\UIManager.cs" />
+     <Compile Include="Assets\Scripts\Core\AuthenticationManager.cs" />
+     <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXEffectController.cs" />
+     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
+     <Compile Include="Assets\Scripts\Car\PreventTipping.cs" />
+     <Compile Include="Assets\Scripts\Powerups\PowerupData.cs" />
+     <Compile Include="Assets\Scripts\Car\CarSpawn.cs" />
+     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
+     <Compile Include="Assets\Scripts\Menu\CarButton.cs" />
+     <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXSpriteBouncer.cs" />
+     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
+     <Compile Include="Assets\Scripts\Core\PlayerConnectionsManager.cs" />
+     <Compile Include="Assets\Scripts\Car\ExtrapolatedNetworkMovementWithVariables.cs" />
+     <Compile Include="Assets\Scripts\Core\SigninResult.cs" />
+     <Compile Include="Assets\Samples\Authentication\3.1.0\UI Example\PlayerAccountsDemo.cs" />
+     <Compile Include="Assets\Scripts\Car\CarParticles.cs" />
+     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
+     <Compile Include="Assets\Scripts\Menu\MainMenuUI.cs" />
+     <Compile Include="Assets\Epic Toon FX\Demo\Scripts\VFX Library\PEButtonScript.cs" />
+     <Compile Include="Assets\Scripts\Powerups\PowerupSpawner.cs" />
+     <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXEffectControllerPooled.cs" />
+     <Compile Include="Assets\Scripts\Menu\StartRaceButton.cs" />
+     <Compile Include="Assets\Scripts\Menu\CountdownText.cs" />
+     <Compile Include="Assets\Scripts\Car\TerrainDetector.cs" />
+     <Compile Include="Assets\Epic Toon FX\Scripts\ETFXPitchRandomizer.cs" />
+     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
+     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
+     <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXTarget.cs" />
+     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
+     <Compile Include="Assets\Scripts\Car\Wheels.cs" />
+     <Compile Include="Assets\Scripts\Menu\GameOverPanel.cs" />
+     <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXLoopScript.cs" />
+     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
+     <Compile Include="Assets\Scripts\Car\Wheel.cs" />
+     <Compile Include="Assets\Scripts\Car\CarDefinition.cs" />
+     <Compile Include="Assets\Scripts\Core\GameState.cs" />
+     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
+     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
+     <Compile Include="Assets\Scripts\UI\RaceTimerText.cs" />
+     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
+     <Compile Include="Assets\Samples\Economy\3.3.0\UI Sample\InventoriesUISample.cs" />
+     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
+     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
+     <Compile Include="Assets\Scripts\Car\CarLapCounter.cs" />
+     <Compile Include="Assets\Scripts\Menu\CurrentLobbyPanel.cs" />
+     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
+     <Compile Include="Assets\Scripts\Core\ProjectSceneManager.cs" />
+     <Compile Include="Assets\Scripts\Lobby\LobbyManager.cs" />
+     <Compile Include="Assets\Scripts\Car\CarInput.cs" />
+     <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXProjectileScript.cs" />
+     <Compile Include="Assets\Scripts\UI\ShortcutManager.cs" />
+     <Compile Include="Assets\Scripts\Core\Bootstrapper.cs" />
+     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
+     <Compile Include="Assets\Samples\Economy\3.3.0\Code Sample\EconomyCodeSample.cs" />
+     <Compile Include="Assets\Scripts\UI\UIConsoleManager.cs" />
+     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
+     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
+     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
+     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
+     <Compile Include="Assets\Epic Toon FX\Scripts\ETFXRotation.cs" />
+     <Compile Include="Assets\Scripts\Core\RaceGameConnectionData.cs" />
+     <Compile Include="Assets\Scripts\Car\ExtrapolatedNetworkMovement.cs" />
+     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
+     <Compile Include="Assets\Scripts\Menu\CarPanel.cs" />
+     <Compile Include="Assets\Scripts\UI\ShortcutAttribute.cs" />
+     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
+     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
+     <Compile Include="Assets\Scripts\Menu\TrophyPanel.cs" />
+     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
+     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
+     <Compile Include="Assets\Epic Toon FX\Demo\Scripts\VFX Library\ParticleEffectsLibrary.cs" />
+     <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXSceneManager.cs" />
+     <Compile Include="Assets\Scripts\Car\Car.cs" />
+     <Compile Include="Assets\Scripts\UI\CopyTextOnClick.cs" />
+     <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXMouseOrbit.cs" />
+     <Compile Include="Assets\Epic Toon FX\Scripts\ETFXLightFade.cs" />
+     <Compile Include="Assets\Scripts\Car\CarClientMovementController.cs" />
+     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
+     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
+     <Compile Include="Assets\Samples\Authentication\3.1.0\UI Example\AnonymousSignInUIExample.cs" />
+     <Compile Include="Assets\Scripts\Car\CarPowerups.cs" />
+     <Compile Include="Assets\Scripts\Lobby\LobbyEntry.cs" />
+     <Compile Include="Assets\Scripts\Menu\UILapCounter.cs" />
+     <Compile Include="Assets\Scripts\Powerups\PowerupInstance.cs" />
+     <Compile Include="Assets\Scripts\Powerups\PowerupType.cs" />
+     <Compile Include="Assets\Samples\Authentication\3.1.0\UI Example\FacebookLoginUIExample.cs" />
+     <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXFireProjectile.cs" />
+     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
+     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
+     <Compile Include="Assets\Scripts\Menu\TrackSelectionToggle.cs" />
+     <Compile Include="Assets\Samples\Economy\3.3.0\UI Sample\VirtualPurchasesUISample.cs" />
+     <Compile Include="Assets\Samples\Economy\3.3.0\UI Sample\CurrenciesUISample.cs" />
+     <Compile Include="Assets\Scripts\Powerups\PowerupPickup.cs" />
+     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
+     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
+     <Compile Include="Assets\Scripts\Core\CarUnlockManager.cs" />
+     <Compile Include="Assets\Scripts\Menu\IInitialize.cs" />
+     <Compile Include="Assets\Scripts\Core\GameManager.cs" />
+     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
+     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
+     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
+     <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXEffectCycler.cs" />
+     <Compile Include="Assets\Scripts\Car\FollowLocalCar.cs" />
+     <Compile Include="Assets\Scripts\Lobby\LobbyListPanel.cs" />
+     <Compile Include="Assets\Scripts\Car\TrackPointList.cs" />
+     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
+     <Compile Include="Assets\Scripts\Core\NetworkPlayer.cs" />
+     <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXButtonScript.cs" />
+     <Compile Include="Assets\Scripts\Car\FollowPath.cs" />
+     <Compile Include="Assets\Epic Toon FX\Demo\Scripts\VFX Library\UICanvasManager.cs" />
+     <Compile Include="Assets\Scripts\UI\UIShortcutManager.cs" />
+     <Compile Include="Assets\Scripts\Menu\UIMode.cs" />
+     <Compile Include="Assets\Scripts\Core\Waypoint.cs" />
+     <Compile Include="Assets\Scripts\Car\ClientNetworkTransform.cs" />
+     <Folder Include="Assets" />
+     <Folder Include="Library\BuildInstructions" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Water\Other" />
+     <Folder Include="Assets\Epic Toon FX\Sound" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Portals\SimplePortal" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Loot\GlowOrb" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Sparkle\SparkleArea" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Warning" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Lightning\Sharp Strike" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Stars\StarFogFlow" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Magic\Aura" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Water\Bubbles" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Fruit" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Sword\Slash\SwordSlashThin" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Hearts" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Fire\Cartoon\Radial" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Loot\ChestAppear" />
+     <None Include="Assets\Epic Toon FX\Prefabs\Environment\Environment FX.txt" />
+     <Folder Include="Assets\Samples\Economy\3.3.0" />
+     <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Sprites" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Fire\Cartoon\Torch Intense" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Scripts\VFX Library" />
+     <Folder Include="Assets\Epic Toon FX\Materials\Misc\Skulls" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Loot" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Water\Flowing\Sharp" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+     <Folder Include="Assets\Epic Toon FX\Textures\Symbols" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Muzzleflash\FrostMuzzle" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Flamethrower" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Sparkle" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Scripts" />
+     <Folder Include="Assets\TextMesh Pro\Sprites" />
+     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Roboto-Bold - License.txt" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Missiles\Fireball" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Powerups\PowerBox\Pickup" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Muzzleflash\BubbleMuzzle" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile-2-Pass.shader" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Muzzleflash\LightningMuzzle" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Textures\2D Sprites" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Smoke\White" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Muzzleflash\SharpMuzzle" />
+     <None Include="Assets\Epic Toon FX\Prefabs\Combat\Combat FX.txt" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Missile Prefabs\Frost" />
+     <Folder Include="Assets\Samples\Relay\1.0.5" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Portals" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Missiles\Bullet" />
+     <Folder Include="Assets\TextMesh Pro\Resources\Sprite Assets" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Fruit\Banana" />
+     <Folder Include="Assets\ARCADE - FREE Racing Car\Skybox\Night\Textures" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Flamethrower\Cartoon" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\BulletExplosion" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Muzzleflash\Snow" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Emojis" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Magic\Nova" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Missile Prefabs\EnergyNovaSmall" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Magic\Aura Soft" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\SpikyExplosion" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Emojis\Joy" />
+     <Folder Include="Assets\Samples" />
+     <Folder Include="Assets\Samples\Authentication" />
+     <Folder Include="Assets\Epic Toon FX\Materials\Misc\Liquid" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Fog" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Weather\Wind &amp; Leaves" />
+     <Folder Include="Assets\ARCADE - FREE Racing Car\Textures" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Nova\Fire" />
+     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Unity - OFL.txt" />
+     <Folder Include="Assets\ARCADE - FREE Racing Car" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Nova" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Fruit\Apple" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Weather\Rain" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Muzzleflash\SparkleMuzzle" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Zone" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\MegaExplosion" />
+     <Folder Include="Assets\Scripts\Menu" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Sword\Spin" />
+     <Folder Include="Assets\ARCADE - FREE Racing Car\Skybox" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Powerups\PowerOrb\Elemental" />
+     <None Include="Assets\Epic Toon FX\Changelog.txt" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Missile Prefabs\FireballSharp" />
+     <Folder Include="Assets\Epic Toon FX\Shaders" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Missiles\Soul" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Level Up" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Giblets" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Sword" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Loot\ItemSkewedGlow" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Muzzleflash\SoulMuzzle" />
+     <Folder Include="Assets\ARCADE - FREE Racing Car\Scenes\Post Processing" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Missile Prefabs\Mystic" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Magic\Shield" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Powerups\PowerBox\Box Colored" />
+     <Folder Include="Assets\Samples\Economy\3.3.0\Code Sample" />
+     <Folder Include="Assets\Epic Toon FX\Materials\Misc\Powerbox\Metal" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Water\Flowing\Transparent" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Sword\Slash" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Misc" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Death\Skulls" />
+     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Magic\Field" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Missiles\Flash" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Powerups" />
+     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Roboto-Bold - AFL.txt" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Zone\MagicZone" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\ShadowExplosion" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\LightningExplosion" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Materials" />
+     <Folder Include="Assets\Epic Toon FX\Materials\Basics" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Powerups\PowerOrb\Small" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Sword\Hit\SwordHitMini" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Confetti\Shower" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Missiles\Sparkle" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Loot\ItemSparkleBurst" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Missiles\Sharp" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Confetti\Blast" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Fruit\Melon" />
+     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Fire\Candle\CandleLight2" />
+     <Folder Include="Assets\Epic Toon FX\Materials\Misc\Emojis" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Missiles\NovaMissileSoft" />
+     <Folder Include="Assets\TextMesh Pro\Resources\Fonts &amp; Materials" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Level Up\Nova" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Firework" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Fire\Spiky\Big" />
+     <Folder Include="Assets\ARCADE - FREE Racing Car\Textures\Color Variations" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Missiles\NovaSmall" />
+     <Folder Include="Assets\Epic Toon FX\Materials\Misc\Powerbox\VertexColor" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Brawling\Toon" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Missiles\NovaMissile" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\GlitterExplosion" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Missile Prefabs\Bubble" />
+     <Folder Include="Assets\Epic Toon FX\Materials" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Missile Prefabs\EnergyNova" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Lightning\Soft Orb" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Muzzleflash\BulletFatMuzzle" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Missile Prefabs\FireballSoft" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\BombFuse" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Magic\Enchant" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+     <Folder Include="Assets\Samples\Netcode for GameObjects\1.7.0" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Missile Prefabs\Bullet" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Flares\Sharp" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Underwater" />
+     <Folder Include="Assets\TextMesh Pro\Resources" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\NukeConeExplosion" />
+     <Folder Include="Assets\Epic Toon FX\Models" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Missiles\Laser" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Magic\Circle" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Missile Prefabs\Lightning" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Fire\Spiky\Small" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Blood\Water" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Magic\Buff" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs 2D\Blood\Green" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Trails" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Emojis\Fear &amp; Surprise" />
+     <Folder Include="Assets\Powerups" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Muzzleflash\- Misc\GunFire" />
+     <Folder Include="Assets\Epic Toon FX\Materials\Misc\Fire" />
+     <Folder Include="Assets\Prefabs\Cars" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Missiles\Magic" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\FireballSoftExplosion" />
+     <Folder Include="Assets\Epic Toon FX\Materials\Misc\Bubbles" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Muzzleflash\RocketMuzzle" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Missile Prefabs\Gas" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\SnowExplosion" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Portals\SoftPortal" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Missile Prefabs" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Muzzleflash\MagicSoftMuzzle" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Portals\SpinPortal" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Missile Prefabs\Nuke" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Missiles\Mystic" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Fire\Round" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Fire\Soft\Torch AlphaBlend" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Nova\Frost" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Missiles\FireballSharp" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Sword\Hit\SwordHitCritical" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Magic\Sphere" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Textures" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Zone\SpinZone" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs 2D\Water" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\NovaSmallExplosion" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\StormExplosion" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Missiles\FatBullet" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\StarIntenseExplosion" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Missile Prefabs\Shadow" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Brawling\Soft\Directional" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Feathers" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Fruit\Pumpkin" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs 2D" />
+     <Folder Include="Assets\Epic Toon FX\Materials\Misc\Powerbox" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Missiles\Rocket" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Portals\VortexPortal" />
+     <Folder Include="Assets\Epic Toon FX\Materials\Misc\Warnings" />
+     <Folder Include="Assets\ARCADE - FREE Racing Car\Scenes" />
+     <Folder Include="Assets\Epic Toon FX\Materials\Misc\Stars" />
+     <Folder Include="Assets\Epic Toon FX\Materials\Misc\Text" />
+     <Folder Include="Assets\TextMesh Pro" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Emojis\- Misc" />
+     <Folder Include="Assets\Epic Toon FX\Materials\Misc\Powerups\PreColored" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\RoundExplosion" />
+     <Folder Include="Assets\Art" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Missile Prefabs\Grenade" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\SharpExplosion" />
+     <Folder Include="Assets\Epic Toon FX\Materials\Misc\Sword" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Missile Prefabs\Soul" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Fruit\Orange" />
+     <Folder Include="Assets\Resources\CarDefinitions" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\SparkleExplosion" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\GrenadeExplosion" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Stars" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\StarlineExplosion" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Missile Prefabs\Liquid" />
+     <None Include="Assets\TextMesh Pro\Shaders\SDFFunctions.hlsl" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Powerups\PowerOrb" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Sword\- Legacy\SwordHitLegacy" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Fireflies" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Missiles\MagicSoft" />
+     <Folder Include="Assets\Epic Toon FX\Materials\Misc\Hearts" />
+     <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs 2D\Blood" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Sword\Wave" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Missile Prefabs\Fruit" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Sword\Hit\SwordHitMagic" />
+     <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Resources" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Missiles\LightningSoft" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Water" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Money\Coins" />
+     <None Include="Assets\Epic Toon FX\Shaders\ETFX_PowerboxLit.shader" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Portals\SwirlPortal" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Textures\Skybox" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Smoke" />
+     <Folder Include="Assets\Terrain" />
+     <Folder Include="Assets\ARCADE - FREE Racing Car\Skybox\Day" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Brawling\Stun" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Powerups\PowerBox\Pickup Colored" />
+     <Folder Include="Assets\Epic Toon FX\Materials\Misc\Decals" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\LaserExplosion" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Muzzleflash\- Misc\StandardMuzzle" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\SoulExplosion" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Lightning" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Muzzleflash\LaserMuzzle" />
+     <Folder Include="Assets\ARCADE - FREE Racing Car\Prefabs (Meshes Only)" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Missiles\Fruit" />
+     <Folder Include="Assets\Epic Toon FX\Materials\Misc\Powerups" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Sword\Whirlwind" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Missile Prefabs\Energy" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\MagicExplosion" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\BubbleExplosion" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Water\Flowing\Soft" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Blood\Green" />
+     <Folder Include="Assets\Samples\Authentication\3.1.0" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Shield" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Decals\Bullet Decal" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Blood" />
+     <Folder Include="Assets\Samples\Authentication\3.1.0\UI Example\Textures" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Fruit\FruitMix" />
+     <None Include="Assets\Epic Toon FX\Prefabs\Interactive\Interactive FX.txt" />
+     <Folder Include="Assets\Epic Toon FX" />
+     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions (Misc)" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs 2D\Water\Flowing" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+     <Folder Include="Assets\Prefabs" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Materials\Skybox" />
+     <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Materials" />
+     <Folder Include="Assets\Samples\Netcode for GameObjects\1.7.0\Bootstrap\Scenes" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Missile Prefabs\Laser" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+     <Folder Include="Assets\Car Images" />
+     <Folder Include="Assets\Epic Toon FX\Textures\Powerbox" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Fog\White" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs 2D\Explosions" />
+     <Folder Include="Assets\Scripts\Powerups" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+     <Folder Include="Assets\Epic Toon FX\Materials\Misc\Unsorted" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Cards" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Confetti\Directional" />
+     <None Include="Assets\Epic Toon FX\Shaders\ETFX_PowerboxUnlit.shader" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Decals" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Materials\Bullet Surfaces" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Brawling\Soft\Radial" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs 2D\Weather" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+     <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\NovaSoftExplosion" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Brawling\Toon\Directional" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Stars" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Fire" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Muzzleflash" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\LiquidExplosion" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Muzzleflash\NukeMuzzle" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\LightningSoftExplosion" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Lightning\Soft Strike" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Missile Prefabs\Sharp" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\FireballRoundExplosion" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Water\Boiling" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Sword\Hit" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Missile Prefabs\EnergyNovaSoft" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Fire\Soft\Torch Additive" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Flamethrower\Soft" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Brawling" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Powerups\PowerOrb\Basic" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Missiles\Nuke" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Weather" />
+     <None Include="Assets\Epic Toon FX\Upgrade\URP Compatibility.txt" />
+     <Folder Include="Assets\Prefabs\UI" />
+     <Folder Include="Assets\Epic Toon FX\Models\Materials" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Muzzleflash\ShadowMuzzle" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Fire\Cartoon\Tall" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Missile Prefabs\Magic" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Money\Bills" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Missiles" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\MysticExplosion" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Missiles\Bubble" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+     <Folder Include="Assets\Epic Toon FX\Materials\Misc\Powerbox\PreColored" />
+     <Folder Include="Assets\TextMesh Pro\Shaders" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Missiles\Snow" />
+     <Folder Include="Assets\Scripts" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Emojis\Disgust" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\MagicNovaExplosion" />
+     <Folder Include="Assets\ARCADE - FREE Racing Car\Skybox\Night" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs 2D\Blood\Yellow" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\NukeExplosion" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Fire\Cartoon\Field Intense" />
+     <Folder Include="Assets\Epic Toon FX\Materials\Misc\Magic" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Missiles\FireballSoft" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Muzzleflash\EnergyNovaSmallMuzzle" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Fruit\Pear" />
+     <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Resources\Sprite Assets" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Flares" />
+     <Folder Include="Assets\TextMesh Pro\Resources\Style Sheets" />
+     <Folder Include="Assets\Samples\Netcode for GameObjects\1.7.0\Bootstrap" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Missile Prefabs\LightningSoft" />
+     <Folder Include="Assets\TextMesh Pro\Fonts" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Sparkle\SparkleSolo" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\MagicSoftExplosion" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Missile Prefabs\Storm" />
+     <Folder Include="Assets\ARCADE - FREE Racing Car\Materials\Color Variations" />
+     <Folder Include="Assets\Epic Toon FX\Materials\Misc\Explosions" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Fire\Cartoon\Field" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Sword\Hit\SwordHit" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Dust" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Zone\BasicZone" />
+     <Folder Include="Assets\Epic Toon FX\Textures\Text" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Muzzleflash\- Misc" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Muzzleflash\EnergyNovaMuzzle" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Confetti" />
+     <Folder Include="Assets\Epic Toon FX\Demo" />
+     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Fruit\Grape" />
+     <Folder Include="Assets\ARCADE - FREE Racing Car\Meshes" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Missiles\Liquid" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Missile Prefabs\Sparkle" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\NukeVerticalExplosion" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Missile Prefabs\Fireball" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Powerups\PowerBox" />
+     <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Prefabs" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Powerups\PowerBox\Box Flat" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Fruit\Strawberry" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Nova\Standard" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Muzzleflash\LiquidMuzzle" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Muzzleflash\FireballMuzzle" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Fruit\Coconut" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Missiles\Gas" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Missile Prefabs\MagicSoft" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Powerups\PowerBox\Box Metal" />
+     <Folder Include="Assets\Epic Toon FX\Materials\Misc\Cards" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Decals\Explosion Decal" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Water\Flowing" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\StarExplosion" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Fog\Grey" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Scenes\Extras" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Bubbles" />
+     <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Scenes" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Brawling\Soft" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Healing" />
+     <Folder Include="Assets\Epic Toon FX\Textures" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Decals\Energy Decal" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Portals\WavePortal" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Magic\Circle Simple" />
+     <Folder Include="Assets\Resources" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Fire\Candle" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs 2D\Blood\Red" />
+     <Folder Include="Assets\Epic Toon FX\Materials\Misc\Powerups\VertexColor" />
+     <Folder Include="Assets\Samples\Netcode for GameObjects\1.7.0\Bootstrap\Prefabs" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Brawling\Toon\Radial" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Flamethrower\Soft\Additive" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Demo Prefabs" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Stars\StarFog" />
+     <Folder Include="Assets\Scripts\Car" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Sword\Slash\SwordSlashMini" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Flamethrower\Soft\Alpha Blend" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Muzzleflash\BulletMuzzle" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Missiles\Shadow" />
+     <Folder Include="Assets\Scripts\Core" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Animation" />
+     <Folder Include="Assets\ARCADE - FREE Racing Car\Materials" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Muzzleflash\GrenadeMuzzle" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\FrostExplosion" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Death" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Level Up\Cylinder" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\BulletFatExplosion" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Magic\PillarBlast" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Muzzleflash\MysticMuzzle" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\FlashExplosion" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Flamethrower\Sharp" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Fire\Candle\CandleLightSoft" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Smoke\Dark" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Fire\Soft" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Powerups\PowerupActivate" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Missile Prefabs\BulletFat" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Blood\Yellow" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Muzzleflash\EnergyMuzzle" />
+     <Folder Include="Assets\Samples\Netcode for GameObjects" />
+     <Folder Include="Assets\Samples\Economy\3.3.0\UI Sample" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\SmallExplosion" />
+     <Folder Include="Assets\Scenes" />
+     <Folder Include="Assets\Epic Toon FX\Materials\Misc\Portals" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\FruitExplosion" />
+     <Folder Include="Assets\Epic Toon FX\Upgrade" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Powerups\PowerupGlow" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\FireballSharpExplosion" />
+     <Folder Include="Assets\Samples\Economy" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Loot\ItemSparkle" />
+     <Folder Include="Assets\ARCADE - FREE Racing Car\Prefabs (With Colliders)" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Sword\Slash\SwordSlashThick" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Fire\Candle\CandleLight" />
+     <Folder Include="Assets\ARCADE - FREE Racing Car\Skybox\Day\Textures" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Fire\Cartoon" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Magic" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Emojis\Sadness" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Missiles\Energy" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Muzzleflash\StormMuzzle" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\NovaExplosion" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Nova\Lightning" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Flamethrower\Spiky" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Scenes" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Muzzleflash\FireballSoftMuzzle" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Missiles\Frost" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Fire\Soft\Big" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\GasExplosion" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Fog\Black" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Fire\Soft\Tall" />
+     <Folder Include="Assets\Epic Toon FX\Textures\Emojis" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Death\Souls" />
+     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Missiles\Grenade" />
+     <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Textures" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Sword\- Legacy" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Missiles\Storm" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Magic\Charge" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Flares\Soft" />
+     <Folder Include="Assets\TextMesh Pro\Documentation" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions\EnergyExplosion" />
+     <Folder Include="Assets\Epic Toon FX\Scripts" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Weather\Whirlwinds" />
+     <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Demo Prefabs\VFX Library" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Fire\Cartoon\Torch" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Loot\ItemSparkleSoft" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Weather\Snow" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Missiles\Lightning" />
+     <Folder Include="Assets\Epic Toon FX\Materials\Misc\Lightning" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Missile Prefabs\Flash" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Muzzleflash\MagicMuzzle" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Brawling\RoundHit" />
+     <Folder Include="Assets\Epic Toon FX\Materials\Misc" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Fire\Trails" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Money" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Blood\Red" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Sword\- Legacy\SwordHitCriticalLegacy" />
+     <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Resources\Fonts &amp; Materials" />
+     <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Resources\Color Gradient Presets" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Lightning\Sharp Orb" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Stars\StarVortex" />
+     <Folder Include="Assets\Scripts\Lobby" />
+     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne.json" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Emojis\Anger" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Sparks" />
+     <Folder Include="Assets\Scripts\UI" />
+     <Folder Include="Assets\Epic Toon FX\Demo\Missile Prefabs\Rocket" />
+     <Folder Include="Assets\Samples\Relay" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
+     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Bangers - OFL.txt" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Environment\Fire\Spiky" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Combat\Explosions (Text)" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Emojis\Tired" />
+     <Folder Include="Assets\Samples\Authentication\3.1.0\UI Example" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Zone\BasicZoneWall" />
+     <Folder Include="Assets\Epic Toon FX\Prefabs\Interactive\Powerups\PowerOrb\Sci-Fi" />
+     <Reference Include="UnityEngine">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.AIModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.AIModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.ARModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.ARModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.AccessibilityModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.AccessibilityModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.AndroidJNIModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.AndroidJNIModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.AnimationModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.AnimationModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.AssetBundleModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.AssetBundleModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.AudioModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.AudioModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.ClothModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.ClothModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.ClusterInputModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.ClusterInputModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.ClusterRendererModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.ClusterRendererModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.CommandStateObserverModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.CommandStateObserverModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.ContentLoadModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.ContentLoadModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.CoreModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.CoreModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.CrashReportingModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.CrashReportingModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.DSPGraphModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.DSPGraphModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.DirectorModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.DirectorModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.GIModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.GIModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.GameCenterModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.GameCenterModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.GraphToolsFoundationModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.GraphToolsFoundationModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.GridModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.GridModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.HierarchyCoreModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.HierarchyCoreModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.HotReloadModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.HotReloadModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.IMGUIModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.IMGUIModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.ImageConversionModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.ImageConversionModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.InputModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.InputModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.InputForUIModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.InputForUIModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.InputLegacyModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.InputLegacyModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.JSONSerializeModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.JSONSerializeModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.LocalizationModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.LocalizationModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.MarshallingModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.MarshallingModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.MultiplayerModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.MultiplayerModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.ParticleSystemModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.ParticleSystemModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.PerformanceReportingModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.PerformanceReportingModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.PhysicsModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.PhysicsModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.Physics2DModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.Physics2DModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.ProfilerModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.ProfilerModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.PropertiesModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.PropertiesModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.ScreenCaptureModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.ScreenCaptureModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.SharedInternalsModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.SharedInternalsModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.SpriteMaskModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.SpriteMaskModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.SpriteShapeModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.SpriteShapeModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.StreamingModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.StreamingModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.SubstanceModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.SubstanceModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.SubsystemsModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.SubsystemsModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.TLSModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.TLSModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.TerrainModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.TerrainModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.TerrainPhysicsModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.TerrainPhysicsModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.TextCoreFontEngineModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.TextCoreFontEngineModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.TextCoreTextEngineModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.TextCoreTextEngineModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.TextRenderingModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.TextRenderingModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.TilemapModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.TilemapModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.UIModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.UIModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.UIElementsModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.UIElementsModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.UmbraModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.UmbraModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.UnityAnalyticsModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityAnalyticsModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.UnityAnalyticsCommonModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityAnalyticsCommonModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.UnityConnectModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityConnectModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.UnityCurlModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityCurlModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.UnityTestProtocolModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityTestProtocolModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.UnityWebRequestModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityWebRequestModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.UnityWebRequestAudioModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.UnityWebRequestTextureModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.UnityWebRequestWWWModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.VFXModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.VFXModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.VRModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.VRModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.VehiclesModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.VehiclesModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.VideoModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.VideoModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.VirtualTexturingModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.VirtualTexturingModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.WindModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.WindModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.XRModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.XRModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.AccessibilityModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.AccessibilityModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.AdaptivePerformanceModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.AdaptivePerformanceModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.CoreModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.CoreModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.DeviceSimulatorModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.DeviceSimulatorModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.DiagnosticsModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.DiagnosticsModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.EditorToolbarModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.EditorToolbarModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.GraphToolsFoundationModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.GraphToolsFoundationModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.GraphViewModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.GraphViewModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.GridAndSnapModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.GridAndSnapModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.GridModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.GridModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.Physics2DModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.Physics2DModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.PhysicsModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.PhysicsModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.PresetsUIModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.PresetsUIModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.PropertiesModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.PropertiesModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.QuickSearchModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.QuickSearchModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.SafeModeModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.SafeModeModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.SceneTemplateModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.SceneTemplateModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.SceneViewModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.SceneViewModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.ShaderFoundryModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.ShaderFoundryModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.SketchUpModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.SketchUpModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.SpriteMaskModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.SpriteMaskModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.SpriteShapeModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.SpriteShapeModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.TerrainModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.TerrainModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.TextCoreFontEngineModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.TextCoreFontEngineModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.TextCoreTextEngineModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.TextCoreTextEngineModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.TextRenderingModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.TextRenderingModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.TilemapModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.TilemapModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.TreeModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.TreeModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.UIAutomationModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.UIAutomationModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.UIBuilderModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.UIBuilderModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.UIElementsModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.UIElementsModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.UIElementsSamplesModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.UIElementsSamplesModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.UnityConnectModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.VFXModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.VFXModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.VideoModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.VideoModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.XRModule">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.XRModule.dll</HintPath>
+     </Reference>
+     <Reference Include="websocket-sharp">
+     <HintPath>C:\Projects\MP Racer\Library\PackageCache\com.unity.services.wire@1.2.2\Plugins\websocket-sharp.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Collections.LowLevel.ILSupport">
+     <HintPath>C:\Projects\MP Racer\Library\PackageCache\com.unity.collections@2.2.1\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
+     </Reference>
+     <Reference Include="nunit.framework">
+     <HintPath>C:\Projects\MP Racer\Library\PackageCache\com.unity.ext.nunit@2.0.5\net40\unity-custom\nunit.framework.dll</HintPath>
+     </Reference>
+     <Reference Include="ReportGeneratorMerged">
+     <HintPath>C:\Projects\MP Racer\Library\PackageCache\com.unity.testtools.codecoverage@1.2.4\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
+     <HintPath>C:\Projects\MP Racer\Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+     </Reference>
+     <Reference Include="Newtonsoft.Json">
+     <HintPath>C:\Projects\MP Racer\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.2.1\Runtime\Newtonsoft.Json.dll</HintPath>
+     </Reference>
+     <Reference Include="Mono.Cecil">
+     <HintPath>C:\Projects\MP Racer\Library\PackageCache\com.unity.nuget.mono-cecil@1.11.4\Mono.Cecil.dll</HintPath>
+     </Reference>
+     <Reference Include="netstandard">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>
+     </Reference>
+     <Reference Include="Microsoft.Win32.Primitives">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\Microsoft.Win32.Primitives.dll</HintPath>
+     </Reference>
+     <Reference Include="System.AppContext">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.AppContext.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Buffers">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Buffers.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Collections.Concurrent">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Collections.Concurrent.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Collections">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Collections.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Collections.NonGeneric">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Collections.NonGeneric.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Collections.Specialized">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Collections.Specialized.dll</HintPath>
+     </Reference>
+     <Reference Include="System.ComponentModel">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.ComponentModel.dll</HintPath>
+     </Reference>
+     <Reference Include="System.ComponentModel.EventBasedAsync">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.ComponentModel.EventBasedAsync.dll</HintPath>
+     </Reference>
+     <Reference Include="System.ComponentModel.Primitives">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.ComponentModel.Primitives.dll</HintPath>
+     </Reference>
+     <Reference Include="System.ComponentModel.TypeConverter">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.ComponentModel.TypeConverter.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Console">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Console.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Data.Common">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Data.Common.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Diagnostics.Contracts">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Diagnostics.Contracts.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Diagnostics.Debug">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Diagnostics.Debug.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Diagnostics.FileVersionInfo">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Diagnostics.FileVersionInfo.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Diagnostics.Process">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Diagnostics.Process.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Diagnostics.StackTrace">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Diagnostics.StackTrace.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Diagnostics.TextWriterTraceListener">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Diagnostics.TextWriterTraceListener.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Diagnostics.Tools">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Diagnostics.Tools.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Diagnostics.TraceSource">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Diagnostics.TraceSource.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Diagnostics.Tracing">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Diagnostics.Tracing.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Drawing.Primitives">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Drawing.Primitives.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Dynamic.Runtime">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Dynamic.Runtime.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Globalization.Calendars">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Globalization.Calendars.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Globalization">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Globalization.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Globalization.Extensions">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Globalization.Extensions.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO.Compression">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.IO.Compression.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO.Compression.ZipFile">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.IO.Compression.ZipFile.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.IO.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO.FileSystem">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.IO.FileSystem.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO.FileSystem.DriveInfo">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.IO.FileSystem.DriveInfo.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO.FileSystem.Primitives">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.IO.FileSystem.Primitives.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO.FileSystem.Watcher">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.IO.FileSystem.Watcher.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO.IsolatedStorage">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.IO.IsolatedStorage.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO.MemoryMappedFiles">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.IO.MemoryMappedFiles.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO.Pipes">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.IO.Pipes.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO.UnmanagedMemoryStream">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.IO.UnmanagedMemoryStream.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Linq">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Linq.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Linq.Expressions">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Linq.Expressions.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Linq.Parallel">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Linq.Parallel.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Linq.Queryable">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Linq.Queryable.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Memory">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Memory.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Net.Http">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Net.Http.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Net.NameResolution">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Net.NameResolution.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Net.NetworkInformation">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Net.NetworkInformation.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Net.Ping">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Net.Ping.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Net.Primitives">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Net.Primitives.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Net.Requests">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Net.Requests.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Net.Security">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Net.Security.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Net.Sockets">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Net.Sockets.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Net.WebHeaderCollection">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Net.WebHeaderCollection.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Net.WebSockets.Client">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Net.WebSockets.Client.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Net.WebSockets">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Net.WebSockets.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Numerics.Vectors">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Numerics.Vectors.dll</HintPath>
+     </Reference>
+     <Reference Include="System.ObjectModel">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.ObjectModel.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Reflection.DispatchProxy">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Reflection.DispatchProxy.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Reflection">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Reflection.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Reflection.Emit">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Reflection.Emit.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Reflection.Emit.ILGeneration">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Reflection.Emit.ILGeneration.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Reflection.Emit.Lightweight">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Reflection.Emit.Lightweight.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Reflection.Extensions">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Reflection.Extensions.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Reflection.Primitives">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Reflection.Primitives.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Resources.Reader">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Resources.Reader.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Resources.ResourceManager">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Resources.ResourceManager.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Resources.Writer">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Resources.Writer.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime.CompilerServices.VisualC">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Runtime.CompilerServices.VisualC.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Runtime.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime.Extensions">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Runtime.Extensions.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime.Handles">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Runtime.Handles.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime.InteropServices">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Runtime.InteropServices.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime.InteropServices.RuntimeInformation">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime.Numerics">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Runtime.Numerics.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime.Serialization.Formatters">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Runtime.Serialization.Formatters.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime.Serialization.Json">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Runtime.Serialization.Json.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime.Serialization.Primitives">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Runtime.Serialization.Primitives.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime.Serialization.Xml">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Runtime.Serialization.Xml.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Security.Claims">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Security.Claims.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Security.Cryptography.Algorithms">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Security.Cryptography.Algorithms.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Security.Cryptography.Csp">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Security.Cryptography.Csp.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Security.Cryptography.Encoding">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Security.Cryptography.Encoding.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Security.Cryptography.Primitives">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Security.Cryptography.Primitives.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Security.Cryptography.X509Certificates">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Security.Cryptography.X509Certificates.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Security.Principal">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Security.Principal.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Security.SecureString">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Security.SecureString.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Text.Encoding">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Text.Encoding.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Text.Encoding.Extensions">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Text.Encoding.Extensions.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Text.RegularExpressions">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Text.RegularExpressions.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Threading">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Threading.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Threading.Overlapped">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Threading.Overlapped.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Threading.Tasks">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Threading.Tasks.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Threading.Tasks.Extensions">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Threading.Tasks.Extensions.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Threading.Tasks.Parallel">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Threading.Tasks.Parallel.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Threading.Thread">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Threading.Thread.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Threading.ThreadPool">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Threading.ThreadPool.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Threading.Timer">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Threading.Timer.dll</HintPath>
+     </Reference>
+     <Reference Include="System.ValueTuple">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.ValueTuple.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Xml.ReaderWriter">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Xml.ReaderWriter.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Xml.XDocument">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Xml.XDocument.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Xml.XmlDocument">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Xml.XmlDocument.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Xml.XmlSerializer">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Xml.XmlSerializer.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Xml.XPath">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Xml.XPath.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Xml.XPath.XDocument">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Xml.XPath.XDocument.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime.InteropServices.WindowsRuntime">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\Extensions\2.0.0\System.Runtime.InteropServices.WindowsRuntime.dll</HintPath>
+     </Reference>
+     <Reference Include="mscorlib">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\mscorlib.dll</HintPath>
+     </Reference>
+     <Reference Include="System.ComponentModel.Composition">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.ComponentModel.Composition.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Core">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Core.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Data">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Data.dll</HintPath>
+     </Reference>
+     <Reference Include="System">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Drawing">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Drawing.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO.Compression.FileSystem">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.IO.Compression.FileSystem.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Net">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Net.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Numerics">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Numerics.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime.Serialization">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Runtime.Serialization.dll</HintPath>
+     </Reference>
+     <Reference Include="System.ServiceModel.Web">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.ServiceModel.Web.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Transactions">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Transactions.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Web">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Web.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Windows">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Windows.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Xml">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Xml.Linq">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Linq.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Xml.Serialization">
+     <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
+     </Reference>
+     <Reference Include="com.unity.cinemachine.editor">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Services.Relay">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Services.Relay.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Multiplayer.Tools.Editor">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Multiplayer.Tools.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Multiplayer.Tools.NetStatsMonitor.Editor">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Multiplayer.Tools.NetStatsMonitor.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.UI">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Rider.Editor">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Multiplayer.Tools.DependencyInjection.UIElements">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Multiplayer.Tools.DependencyInjection.UIElements.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Multiplayer.Tools.MetricTestData">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Multiplayer.Tools.MetricTestData.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Multiplayer.Tools.Common">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Multiplayer.Tools.Common.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Networking.Editor">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Networking.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Multiplayer.Tools.NetStatsMonitor.Implementation">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Multiplayer.Tools.NetStatsMonitor.Implementation.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Multiplayer.Tools.NetStatsMonitor.Component">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Multiplayer.Tools.NetStatsMonitor.Component.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Netcode.Runtime">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Netcode.Runtime.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Timeline.Editor">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Timeline">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.UI">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.TestTools.CodeCoverage.Editor">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Mathematics.Editor">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Multiplayer.Tools.NetStats">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Multiplayer.Tools.NetStats.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Netcode.Editor">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Netcode.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Multiplayer.Tools.NetworkProfiler.Runtime">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Multiplayer.Tools.NetworkProfiler.Runtime.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Services.Authentication.PlayerAccounts">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Services.Authentication.PlayerAccounts.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Services.Economy">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Services.Economy.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Collections">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Collections.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Multiplayer.Tools.NetVis.Editor.UI">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Multiplayer.Tools.NetVis.Editor.UI.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Multiplayer.Tools.NetworkSimulator.Runtime">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Multiplayer.Tools.NetworkSimulator.Runtime.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Netcode.Editor.PackageChecker">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Netcode.Editor.PackageChecker.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Multiplayer.Playmode">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Multiplayer.Playmode.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Services.CloudSave.Editor">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Services.CloudSave.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VisualScripting.Core">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Services.Authentication.Editor.Shared">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Services.Authentication.Editor.Shared.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Multiplayer.Tools.NetworkProfiler.Editor">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Multiplayer.Tools.NetworkProfiler.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Multiplayer.Tools.DependencyInjection">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Multiplayer.Tools.DependencyInjection.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Multiplayer.Tools.NetStatsMonitor.Configuration">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Multiplayer.Tools.NetStatsMonitor.Configuration.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Collections.Editor">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Collections.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Profiling.Core">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Profiling.Core.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VisualScripting.Shared.Editor">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VisualScripting.Core.Editor">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Multiplayer.Tools.NetworkSimulator.Editor">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Multiplayer.Tools.NetworkSimulator.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VisualScripting.Flow.Editor">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Services.Lobbies">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Services.Lobbies.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.TextMeshPro">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Services.Core.Analytics">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Services.Core.Analytics.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.EditorCoroutines.Editor">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.PlasticSCM.Editor">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VisualScripting.State.Editor">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Multiplayer.Tools.Adapters">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Multiplayer.Tools.Adapters.dll</HintPath>
+     </Reference>
+     <Reference Include="Cinemachine">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Cinemachine.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Services.Authentication">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Services.Authentication.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Mathematics">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Networking.Transport">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Networking.Transport.dll</HintPath>
+     </Reference>
+     <Reference Include="com.unity.multiplayer.tools.window">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\com.unity.multiplayer.tools.window.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Multiplayer.Tools.NetVis.Editor.Visualization">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Multiplayer.Tools.NetVis.Editor.Visualization.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Services.CloudSave">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Services.CloudSave.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VisualScripting.State">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Multiplayer.Tools.NetVis.Configuration">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Multiplayer.Tools.NetVis.Configuration.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Services.Core.Environments">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Services.Core.Environments.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Multiplayer.Tools.NetStatsReporting">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Multiplayer.Tools.NetStatsReporting.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.TextMeshPro.Editor">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Burst.Editor">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Services.Core">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Services.Core.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.InternalAPIEditorBridge.022">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.022.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Burst">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Multiplayer.Tools.Initialization">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Multiplayer.Tools.Initialization.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VisualStudio.Editor">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Multiplayer.Tools.MetricTypes">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Multiplayer.Tools.MetricTypes.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Multiplayer.Tools.NetworkSolutionInterface">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Multiplayer.Tools.NetworkSolutionInterface.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VisualScripting.Flow">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Netcode.Components">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Netcode.Components.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Services.QoS">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Services.QoS.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Multiplayer.Tools.MetricEvents">
+     <HintPath>C:\Projects\MP Racer\Library\ScriptAssemblies\Unity.Multiplayer.Tools.MetricEvents.dll</HintPath>
+     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="SimpleRelay.csproj">
+      <Project>{a63ca4e2-a110-99cb-09dc-7883fd5a4ebb}</Project>
+      <Name>SimpleRelay</Name>
+    </ProjectReference>
+    <ProjectReference Include="Bootstrap.csproj">
+      <Project>{fdf90fa8-8fab-4383-6c18-06ff7fe477d7}</Project>
+      <Name>Bootstrap</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

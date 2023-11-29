@@ -39,7 +39,7 @@ public class FollowPath : MonoBehaviour
             _pointIndex = 0;
 
         _nextPoint = CurrentTrackPoints[_pointIndex];
-        Debug.LogError($"Switching from point {pastIndex} to {_pointIndex}");
+//        Debug.LogError($"Switching from point {pastIndex} to {_pointIndex}");
     }
 
     void TurnTowardsNextPoint()

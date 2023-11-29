@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,11 +10,11 @@ using UnityEngine;
 public class CarUnlockManager : MonoBehaviour
 {
     public static CarUnlockManager Instance { get; private set; }
-    public static bool IsInitialized { get; private set; }
-
+    public event Action OnItemsUpdated;
     List<PlayersInventoryItem> Inventory { get; set; }
     public long TrophyCount { get; private set; }
-    public List<VirtualPurchaseDefinition> AllPurchases { get; private set; }
+    public List<VirtualPurchaseDefinition> AllPurchases { get; private set; } = new();
+
 
     void Awake()
     {
@@ -30,33 +30,54 @@ public class CarUnlockManager : MonoBehaviour
         ShortcutManager.Add("+20 Trophies", () => StartCoroutine(Add20Trophies()));
     }
 
-    IEnumerator Start()
-    {
-        while (AuthenticationService.Instance.IsSignedIn == false)
-        {
-            // Debug.Log("Waiting for Authentication");
-            yield return null;
-        }
+    void Start() => AuthenticationService.Instance.SignedIn += GetItems;
 
-        yield return GetItems();
-        //yield return Add20Trophies();
-        IsInitialized = true;
-    }
+    void OnDestroy() => AuthenticationService.Instance.SignedIn -= GetItems;
 
-    async Awaitable GetItems()
+    async void GetItems()
     {
         await EconomyService.Instance.Configuration.SyncConfigurationAsync();
         AllPurchases = EconomyService.Instance.Configuration.GetVirtualPurchases();
+        
+        RefreshCustomCarData();
+       
+        await RefreshPlayersInventory();
+    }
 
+    async Task RefreshPlayersInventory()
+    {
         var itemsResult = await EconomyService.Instance.PlayerInventory.GetInventoryAsync();
         Inventory = itemsResult.PlayersInventoryItems;
         var balancesResult = await EconomyService.Instance.PlayerBalances.GetBalancesAsync();
         TrophyCount = balancesResult.Balances.First(t => t.CurrencyId == "TROPHY").Balance;
+
+        OnItemsUpdated?.Invoke();
     }
 
-    public bool IsCarUnlocked(string carItemId) => true;
-        //Inventory?.Any(t => t.InventoryItemId == carItemId) == true;
+    void RefreshCustomCarData()
+    {
+        var allItems = EconomyService.Instance.Configuration.GetInventoryItems();
+        foreach (var item in allItems)
+        {
+            var carData = item.CustomDataDeserializable.GetAs<CarCustomData>();
+            if (carData != default)
+            {
+                CarDatas[item.Id] = carData;
+            }
+        }
+    }
 
+    public CarCustomData GetCarCustomData(string carItemId)
+    {
+        if (CarDatas.TryGetValue(carItemId, out var data))
+            return data;
+        return default;
+    }
+
+    Dictionary<string, CarCustomData> CarDatas = new();
+
+    public bool IsCarUnlocked(string carItemId) => Inventory?.Any(t => 
+        t.InventoryItemId == carItemId) == true;
 
     [ContextMenu(nameof(Add20Trophies))]
     public async Awaitable Add20Trophies()
@@ -74,25 +95,46 @@ public class CarUnlockManager : MonoBehaviour
         }
     }
 
-    public async Task<bool> TryUnlockCar(string carItemId)
+    public async Task<bool> TryUnlockCar(string carPurchaseId)
     {
         try
         {
-            var carPurchaseId = carItemId;
             Debug.Log($"Attempting to purchase {carPurchaseId}");
             var result = await EconomyService.Instance.Purchases.MakeVirtualPurchaseAsync(carPurchaseId);
-            var itemsResult = await EconomyService.Instance.PlayerInventory.GetInventoryAsync();
-            Inventory = itemsResult.PlayersInventoryItems;
-            var balancesResult = await EconomyService.Instance.PlayerBalances.GetBalancesAsync();
-            TrophyCount = balancesResult.Balances.First(t => t.CurrencyId == "TROPHY").Balance;
+            Debug.Log($"Result = {result.Rewards.Inventory.Count} items & {result.Rewards.Currency.Count} currency");
+
+            await RefreshPlayersInventory();
 
             return true;
         }
         catch (EconomyException e)
         {
-            Debug.LogError(e);
+            Debug.LogError(e.Message);
         }
 
         return false;
     }
+
+    public async Task TryLockCarAsync(string itemId)
+    {
+        var itemInstance = Inventory.FirstOrDefault(t => t.InventoryItemId == itemId);
+        if (itemInstance == null)
+        {
+            Debug.LogError($"Unable to lock car {itemId}");
+            return;
+        }
+
+        await EconomyService.Instance.PlayerInventory.DeletePlayersInventoryItemAsync(itemInstance
+            .PlayersInventoryItemId);
+
+        await RefreshPlayersInventory();
+    }
+
+    public async void SetLocalPlayerCar(string carItemId)
+    {
+        SelectedCarItemId = carItemId;
+        await LobbyManager.Instance.UpdateLocalPlayerCar();
+    }
+
+    public string SelectedCarItemId { get; private set; }
 }

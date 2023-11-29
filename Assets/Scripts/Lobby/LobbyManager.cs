@@ -46,7 +46,7 @@ public class LobbyManager : MonoBehaviour
 
         OnJoinedLobby?.Invoke(CurrentLobby);
 
-        await UpdatePlayerIdInLobby();
+        await UpdatePlayerLobbyData();
         await SetClientReadyState(true);
 
         // Heartbeat the lobby every 15 seconds.
@@ -93,7 +93,7 @@ public class LobbyManager : MonoBehaviour
         }
     }
 
-    async Task UpdatePlayerIdInLobby()
+    async Task UpdatePlayerLobbyData()
     {
         try
         {
@@ -104,12 +104,16 @@ public class LobbyManager : MonoBehaviour
                 {
                     "name", new PlayerDataObject(
                         visibility: PlayerDataObject.VisibilityOptions.Public,
-                        value: await AuthenticationManager.Instance.GetPlayerNameAsync())
+                        value: AuthenticationManager.Instance.GetPlayerName())
                 },
                 {
                     "id", new PlayerDataObject(
                         visibility: PlayerDataObject.VisibilityOptions.Public,
-                        value: await AuthenticationManager.Instance.GetPlayerIdAsync())
+                        value: AuthenticationManager.Instance.GetPlayerId())
+                },
+                {
+                    "car", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member,
+                        CarUnlockManager.Instance.SelectedCarItemId)
                 }
             };
 
@@ -152,7 +156,7 @@ public class LobbyManager : MonoBehaviour
     {
         CurrentLobby = await LobbyService.Instance.JoinLobbyByIdAsync(lobby.Id);
         Debug.Log($"Joined {CurrentLobby.Name}");
-        await UpdatePlayerIdInLobby();
+        await UpdatePlayerLobbyData();
         
         LobbyEventCallbacks callbacks = new LobbyEventCallbacks();
         callbacks.LobbyChanged += HandleCurrentLobbyChanged;
@@ -199,7 +203,8 @@ public class LobbyManager : MonoBehaviour
 
     async Task SetRelayClientData(string relayCode)
     {
-        UnityTransport transport = NetworkManager.Singleton.GetComponentInChildren<UnityTransport>(); ;
+        UnityTransport transport = NetworkManager.Singleton.GetComponentInChildren<UnityTransport>();
+        ;
 
         Debug.LogWarning($"Relay code {relayCode}");
 
@@ -226,7 +231,7 @@ public class LobbyManager : MonoBehaviour
     IEnumerator CountdownThenStartClient()
     {
         yield return RunCountdownWithEvents();
-        StartClient();
+        yield return PlayerConnectionsManager.Instance.StartClient();
     }
 
     IEnumerator StartServerThenCountdown()
@@ -237,7 +242,7 @@ public class LobbyManager : MonoBehaviour
 
     IEnumerator RunCountdownWithEvents()
     {
-        int countDownTimer = 3;
+        int countDownTimer = 1;
         OnCountdownStarted?.Invoke();
         while (countDownTimer > 0)
         {
@@ -247,20 +252,21 @@ public class LobbyManager : MonoBehaviour
         }
     }
 
-    static async void StartClient()
-    {
-        RaceGameConnectionData data = new()
-        {
-            Name = await AuthenticationManager.Instance.GetPlayerNameAsync(),
-            Id = await AuthenticationManager.Instance.GetPlayerIdAsync(),
-            Car = "Red"
-        };
-        var json = JsonUtility.ToJson(data);
-        Debug.Log(json);
-        NetworkManager.Singleton.NetworkConfig.ConnectionData =
-            System.Text.Encoding.UTF8.GetBytes(json);
-        NetworkManager.Singleton.StartClient();
-    }
+    // static async void StartClient()
+    // {
+    //     await PlayerConnectionsManager.Instance.AddPayloadData();
+    //     // RaceGameConnectionData data = new()
+    //     // {
+    //     //     Name = await AuthenticationManager.Instance.GetPlayerNameAsync(),
+    //     //     Id = await AuthenticationManager.Instance.GetPlayerIdAsync(),
+    //     //     Car = "Red"
+    //     // };
+    //     // var json = JsonUtility.ToJson(data);
+    //     // Debug.Log(json);
+    //     // NetworkManager.Singleton.NetworkConfig.ConnectionData =
+    //     //     System.Text.Encoding.UTF8.GetBytes(json);
+    //     // NetworkManager.Singleton.StartClient();
+    // }
 
     public async Task RequestStartGame()
     {
@@ -307,12 +313,12 @@ public class LobbyManager : MonoBehaviour
             if (endpoint.Secure && endpoint.Network == RelayServerEndpoint.NetworkOptions.Udp)
             {
                 isSecure = true;
-                return NetworkEndpoint.Parse(endpoint.Host, (ushort)endpoint.Port);
+                return NetworkEndpoint.Parse(endpoint.Host, (ushort) endpoint.Port);
             }
         }
 #endif
         isSecure = false;
-        return NetworkEndpoint.Parse(ip, (ushort)port);
+        return NetworkEndpoint.Parse(ip, (ushort) port);
     }
 
     public event Action OnCountdownStarted;
@@ -336,20 +342,33 @@ public class LobbyManager : MonoBehaviour
         await HostLobby();
     }
 
-    public async Task SetLocalPlayerCar(string carDefinitionName)
+    public async Task UpdateLocalPlayerCar()
     {
-        var options = new UpdatePlayerOptions() { Data = new() };
-        options.Data["car"] = new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, carDefinitionName);
-        CurrentLobby = await LobbyService.Instance.UpdatePlayerAsync(LobbyManager.Instance.CurrentLobby.Id,
+        if (CurrentLobby == null)
+            return;
+
+        var options = new UpdatePlayerOptions()
+        {
+            Data = new()
+            {
+                ["car"] = new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member,
+                    CarUnlockManager.Instance.SelectedCarItemId)
+            }
+        };
+
+        CurrentLobby = await LobbyService.Instance.UpdatePlayerAsync(
+            CurrentLobby.Id,
             AuthenticationService.Instance.PlayerId,
             options);
+
         OnCurrentLobbyUpdated?.Invoke();
     }
 
     public async Task SetClientReadyState(bool isReady)
     {
-        var options = new UpdatePlayerOptions() { Data = new() };
-        options.Data["isready"] = new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, isReady ? "true" : "false");
+        var options = new UpdatePlayerOptions() {Data = new()};
+        options.Data["isready"] =
+            new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, isReady ? "true" : "false");
         CurrentLobby = await LobbyService.Instance.UpdatePlayerAsync(LobbyManager.Instance.CurrentLobby.Id,
             AuthenticationService.Instance.PlayerId,
             options);

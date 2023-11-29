@@ -7,13 +7,26 @@ using UnityEngine.UI;
 
 public class MainMenuUI : MonoBehaviour
 {
-    [Header("Login")] [SerializeField] GameObject _loginButtonsPanel;
+    [Header("Login - Main Buttons")] [SerializeField]
+    GameObject _loginButtonsPanel;
+
     [SerializeField] Button _anonLoginButton;
     [SerializeField] Button _unityLoginButton;
-    [SerializeField] TMP_InputField _nameInput;
 
-    [Header("Lobby Buttons")] 
-    [SerializeField] Button _hostButton;
+    [Header("Login - UserName and Password")] [SerializeField]
+    Button _usernameAndPasswordShowPanelButton;
+
+    [SerializeField] Button _usernameAndPasswordLoginButton;
+    [SerializeField] Button _usernameAndPasswordCancelButton;
+    [SerializeField] Button _usernameAndPasswordRegisterButton;
+    [SerializeField] Button _accountButton;
+    [SerializeField] TMP_InputField _nameInput;
+    [SerializeField] TMP_InputField _passwordInput;
+    [SerializeField] TMP_Text _statusText;
+    [SerializeField] TMP_Text _playerIdText;
+
+    [Header("Lobby Buttons")] [SerializeField]
+    Button _hostButton;
 
     [SerializeField] Button _refreshLobbiesButton;
 
@@ -22,6 +35,9 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] LobbyListPanel _lobbyListPanel;
     [SerializeField] GameObject _lobbiesPanel;
     [SerializeField] GameObject _carsPanel;
+    [SerializeField] GameObject _userNameAndPasswordPanel;
+
+    [SerializeField] Button _economyButton;
 
     void Start()
     {
@@ -30,6 +46,14 @@ public class MainMenuUI : MonoBehaviour
         AuthenticationManager.Instance.OnSigninFailed += ShowAuthenticationPanel;
         _anonLoginButton.onClick.AddListener(LoginAnon);
         _unityLoginButton.onClick.AddListener(LoginUnity);
+        _usernameAndPasswordShowPanelButton.onClick.AddListener(ShowUserNameAndPasswordPanel);
+        _usernameAndPasswordCancelButton.onClick.AddListener(HideUserNameAndPasswordPanel);
+        _usernameAndPasswordLoginButton.onClick.AddListener(LoginUserNameAndPassword);
+        _usernameAndPasswordRegisterButton.onClick.AddListener(SignUpWithUsernameAndPassword);
+        _accountButton.onClick.AddListener(ShowDeleteAccountPage);
+        _economyButton.onClick.AddListener(ShowCarsPanel);
+
+        HideUserNameAndPasswordPanel();
         _loginPanel.SetActive(true);
 
         // Lobby Setup
@@ -46,12 +70,24 @@ public class MainMenuUI : MonoBehaviour
         _currentPanel.Initialize();
     }
 
+    void ShowCarsPanel()
+    {
+        _carsPanel.SetActive(true);
+    }
+
+    void ShowDeleteAccountPage()
+    {
+        Application.OpenURL("https://player-account.unity.com/");
+    }
+
+
     async void HandleRefreshLobbyClick() => await LobbyManager.Instance.RefreshLobbies();
 
     void HandlePlayerLoggedIn()
     {
         _loginPanel.SetActive(false);
         _lobbiesPanel.SetActive(true);
+        _playerIdText.SetText(AuthenticationService.Instance.PlayerId);
     }
 
     void ShowAuthenticationPanel(RequestFailedException requestFailedException)
@@ -60,7 +96,7 @@ public class MainMenuUI : MonoBehaviour
         Debug.Log("Login Failed because " + requestFailedException.Message);
     }
 
-    private void ShowCountdownPanel()
+    void ShowCountdownPanel()
     {
         //_countdownPanel.SetActive(true);
     }
@@ -73,29 +109,81 @@ public class MainMenuUI : MonoBehaviour
 
     async void LoginAnon()
     {
-        try
+        _loginButtonsPanel.SetActive(false);
+        var result = await AuthenticationManager.Instance.SignInAnonAsync(default);
+        if (!result.Success)
         {
-            _loginButtonsPanel.SetActive(false);
-            await AuthenticationManager.Instance.SignInAnonFromUIAsync();
-        }
-        catch (AuthenticationException exception)
-        {
-            Debug.LogError(exception);
             _loginButtonsPanel.SetActive(true);
+            Debug.LogError(result.Message);
         }
     }
 
-    void LoginUnity()
+    void ShowUserNameAndPasswordPanel()
     {
-        try
-        {
-            _loginButtonsPanel.SetActive(false);
+        var username = PlayerPrefs.GetString("username");
 
-            AuthenticationManager.Instance.StartSignInUnityAsync();
-        }
-        catch (AuthenticationException exception)
+#if UNITY_EDITOR
+        username = FindFirstObjectByType<MPPMManager>().profileName;
+        var password = PlayerPrefs.GetString("password");
+        _passwordInput.text = password;
+#endif
+
+        if (!string.IsNullOrWhiteSpace(username))
+            _nameInput.text = username;
+        _userNameAndPasswordPanel.SetActive(true);
+    }
+
+    void HideUserNameAndPasswordPanel() => _userNameAndPasswordPanel.SetActive(false);
+
+    async void SignUpWithUsernameAndPassword()
+    {
+        _usernameAndPasswordLoginButton.gameObject.SetActive(false);
+
+        var result = await AuthenticationManager.Instance.RegisterWithUserNameAndPassword(
+            _nameInput.text,
+            _passwordInput.text);
+
+        if (!result.Success)
         {
-            Debug.LogError(exception);
+            _statusText.SetText(result.Message);
+            _usernameAndPasswordLoginButton.gameObject.SetActive(true);
+        }
+        else
+            SaveUsernameAndPassword();
+    }
+
+    async void LoginUserNameAndPassword()
+    {
+        _usernameAndPasswordLoginButton.gameObject.SetActive(false);
+
+        var result =
+            await AuthenticationManager.Instance.SignInWithUserNameAndPassword(_nameInput.text, _passwordInput.text);
+
+        if (!result.Success)
+        {
+            _statusText.SetText(result.Message);
+            _usernameAndPasswordLoginButton.gameObject.SetActive(true);
+        }
+        else
+            SaveUsernameAndPassword();
+    }
+
+    void SaveUsernameAndPassword()
+    {
+        PlayerPrefs.SetString("username", _nameInput.text);
+        #if UNITY_EDITOR
+        PlayerPrefs.SetString("password", _passwordInput.text);
+        #endif
+    }
+
+    async void LoginUnity()
+    {
+        _loginButtonsPanel.SetActive(false);
+
+        var result = await AuthenticationManager.Instance.StartSignInUnityAsync();
+        if (!result.Success)
+        {
+            Debug.LogError(result.Message);
             _loginButtonsPanel.SetActive(true);
         }
     }

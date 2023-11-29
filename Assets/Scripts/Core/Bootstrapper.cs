@@ -24,7 +24,7 @@ public class Bootstrapper : MonoBehaviour
         await UnityServices.InitializeAsync();
     }
 
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+//    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     static async void Init()
     {
         // cache loaded track here to reload later

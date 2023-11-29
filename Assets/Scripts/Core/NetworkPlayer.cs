@@ -8,13 +8,13 @@ using UnityEngine.SceneManagement;
 
 public class NetworkPlayer : NetworkBehaviour
 {
+    static int _nextSpawnPoint;
     [SerializeField] List<GameObject> _carPrefabs;
-
-    Car _car;
 
     public NetworkVariable<FixedString32Bytes> PlayerId;
     public NetworkVariable<FixedString32Bytes> PlayerName;
 
+    Car _car;
 
     void Awake()
     {
@@ -34,7 +34,7 @@ public class NetworkPlayer : NetworkBehaviour
     public override void OnNetworkSpawn()
     {
         if (IsOwner)
-            PlayerId.Value = AuthenticationManager.Instance.GetPlayerIdCached();
+            PlayerId.Value = AuthenticationManager.Instance.GetPlayerId();
 
         if (IsServer)
         {
@@ -59,18 +59,33 @@ public class NetworkPlayer : NetworkBehaviour
 
         Debug.LogError($"4.5 Spawning Car for {PlayerId.Value.Value} on client {NetworkObject.OwnerClientId}");
 
-        string carName = PlayerConnectionsManager.Instance.GetCar(OwnerClientId);
-        Debug.Log($"Spawning {carName}");
+        string carItemId = PlayerConnectionsManager.Instance.GetCar(OwnerClientId);
+        Debug.Log($"Spawning {carItemId}");
 
         var sp = GetNextSpawnPoint();
-        var carPrefab =
-            _carPrefabs.FirstOrDefault(t => t.name.Equals(carName, StringComparison.InvariantCultureIgnoreCase)) ??
-            _carPrefabs.FirstOrDefault();
+        var carPrefab = _carPrefabs.FirstOrDefault(t => 
+            carItemId.StartsWith(t.name, StringComparison.InvariantCultureIgnoreCase));
+        
+        if (carPrefab == null)
+        {
+            var customData = CarUnlockManager.Instance.GetCarCustomData(carItemId);
+            if (customData != default)
+                carPrefab = _carPrefabs.FirstOrDefault(t=> 
+                    customData.cardefinition.StartsWith(t.name, StringComparison.InvariantCultureIgnoreCase));
+
+            if (carPrefab == null)
+            {
+                Debug.LogError("No Car prefab found, defaulting to first");
+                carPrefab = _carPrefabs.FirstOrDefault();
+            }
+        }
         _car = Instantiate(carPrefab, sp.position, sp.rotation).GetComponent<Car>();
+        
         SceneManager.MoveGameObjectToScene(_car.gameObject, ProjectSceneManager.Instance.CurrentTrackScene);
         _car.GetComponent<ExtrapolatedNetworkMovement>().InitializeForSync();
         _car.NetworkObject.SpawnWithOwnership(OwnerClientId, true);
         _car.OwnerName.Value = PlayerName.Value;
+        _car.CarName.Value = carItemId;
     }
 
     public ClientRpcParams OwnerOnlyRpcParms()
@@ -81,7 +96,6 @@ public class NetworkPlayer : NetworkBehaviour
         };
     }
 
-    static int _nextSpawnPoint;
     Transform GetNextSpawnPoint()
     {
         var spawnPoints = GameObject.FindGameObjectsWithTag("Respawn");
